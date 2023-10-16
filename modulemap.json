@@ -1,0 +1,9 @@
+{
+    "modules": {
+        "WindowsFoundation": {
+            "assemblies": [
+                "Windows.Foundation.FoundationContract"
+            ]
+        }
+    }
+}
