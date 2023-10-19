@@ -13,31 +13,35 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
     public typealias K = String
     public typealias V = WindowsRuntime.IInspectable?
     public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
-    public typealias SwiftValue = WindowsFoundationCollections_IPropertySet
-    public typealias CStruct = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
-    public typealias CVTableStruct = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
+    public typealias SwiftObject = WindowsFoundationCollections_IPropertySet
+    public typealias COMInterface = __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
+    public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
 
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.IPropertySet"
 }
 
 public final class WindowsFoundationCollections_IVectorChangedEventArgsProjection: WinRTProjectionBase<WindowsFoundationCollections_IVectorChangedEventArgsProjection>, WinRTProjection, WindowsFoundationCollections_IVectorChangedEventArgsProtocol {
-    public typealias SwiftValue = WindowsFoundationCollections_IVectorChangedEventArgs
-    public typealias CStruct = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgs
-    public typealias CVTableStruct = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgsVtbl
+    public typealias SwiftObject = WindowsFoundationCollections_IVectorChangedEventArgs
+    public typealias COMInterface = __x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgs
+    public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgsVtbl
 
     public static let iid = IID(0x575933DF, 0x34FE, 0x4480, 0xAF15, 0x07691F3D5D9B)
     public static let runtimeClassName = "Windows.Foundation.Collections.IVectorChangedEventArgs"
 
     public var collectionChange: WindowsFoundationCollections_CollectionChange {
         get throws {
-            try _getter(_vtable.get_CollectionChange, WindowsFoundationCollections_CollectionChange.self)
+            var _result: __x_ABI_CWindows_CFoundation_CCollections_CCollectionChange = WindowsFoundationCollections_CollectionChange.abiDefaultValue
+            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_CollectionChange(comPointer, &_result))
+            return WindowsFoundationCollections_CollectionChange.toSwift(consuming: _result)
         }
     }
 
     public var index: UInt32 {
         get throws {
-            try _getter(_vtable.get_Index)
+            var _result: UINT32 = 0
+            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Index(comPointer, &_result))
+            return _result
         }
     }
 }
@@ -46,9 +50,9 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
     public typealias K = String
     public typealias V = WindowsRuntime.IInspectable?
     public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
-    public typealias SwiftValue = WindowsFoundationCollections_PropertySet
-    public typealias CStruct = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
-    public typealias CVTableStruct = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
+    public typealias SwiftObject = WindowsFoundationCollections_PropertySet
+    public typealias COMInterface = __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
+    public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
 
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.PropertySet"
@@ -58,16 +62,18 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
     public typealias K = String
     public typealias V = String
     public typealias T = WindowsFoundationCollections_IKeyValuePair<K, V>?
-    public typealias SwiftValue = WindowsFoundationCollections_StringMap
-    public typealias CStruct = CWindowsFoundation.__FIMap_2_HSTRING_HSTRING
-    public typealias CVTableStruct = CWindowsFoundation.__FIMap_2_HSTRING_HSTRINGVtbl
+    public typealias SwiftObject = WindowsFoundationCollections_StringMap
+    public typealias COMInterface = __FIMap_2_HSTRING_HSTRING
+    public typealias COMVirtualTable = CWindowsFoundation.__FIMap_2_HSTRING_HSTRINGVtbl
 
     public static let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
     public static let runtimeClassName = "Windows.Foundation.Collections.StringMap"
 
     public var size: UInt32 {
         get throws {
-            try _getter(_vtable.get_Size)
+            var _result: UINT32 = 0
+            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Size(comPointer, &_result))
+            return _result
         }
     }
 
@@ -92,7 +98,7 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
     }
 
     public func clear() throws {
-        try HResult.throwIfFailed(_vtable.Clear(_pointer))
+        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Clear(comPointer))
     }
 }
 
@@ -100,9 +106,9 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
     public typealias K = String
     public typealias V = WindowsRuntime.IInspectable?
     public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
-    public typealias SwiftValue = WindowsFoundationCollections_ValueSet
-    public typealias CStruct = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
-    public typealias CVTableStruct = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
+    public typealias SwiftObject = WindowsFoundationCollections_ValueSet
+    public typealias COMInterface = __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
+    public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
 
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.ValueSet"

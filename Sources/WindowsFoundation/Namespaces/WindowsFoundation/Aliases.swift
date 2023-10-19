@@ -14,9 +14,6 @@ public typealias DateTime = WindowsFoundation_DateTime
 public typealias Deferral = WindowsFoundation_Deferral
 public typealias DeferralCompletedHandler = WindowsFoundation_DeferralCompletedHandler
 public typealias EventHandler<T> = WindowsFoundation_EventHandler<T>
-public typealias EventRegistrationToken = WindowsFoundation_EventRegistrationToken
-public typealias FoundationContract = WindowsFoundation_FoundationContract
-public typealias HResult = WindowsFoundation_HResult
 
 public protocol IAsyncActionProtocol: WindowsFoundation_IAsyncActionProtocol {
 }

@@ -11,10 +11,10 @@ public struct WindowsFoundationCollections_CollectionChange: RawRepresentable, H
         self.rawValue = rawValue
     }
 
-    public static let reset: Self = Self(rawValue: 0)
-    public static let itemInserted: Self = Self(rawValue: 1)
-    public static let itemRemoved: Self = Self(rawValue: 2)
-    public static let itemChanged: Self = Self(rawValue: 3)
+    public static let reset = Self(rawValue: 0)
+    public static let itemInserted = Self(rawValue: 1)
+    public static let itemRemoved = Self(rawValue: 2)
+    public static let itemChanged = Self(rawValue: 3)
 }
 
 public protocol WindowsFoundationCollections_IIterableProtocol<T>: IInspectableProtocol {

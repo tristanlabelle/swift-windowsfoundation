@@ -18,10 +18,10 @@ public struct WindowsFoundation_AsyncStatus: RawRepresentable, Hashable, Codable
         self.rawValue = rawValue
     }
 
-    public static let canceled: Self = Self(rawValue: 2)
-    public static let completed: Self = Self(rawValue: 1)
-    public static let error: Self = Self(rawValue: 3)
-    public static let started: Self = Self(rawValue: 0)
+    public static let canceled = Self(rawValue: 2)
+    public static let completed = Self(rawValue: 1)
+    public static let error = Self(rawValue: 3)
+    public static let started = Self(rawValue: 0)
 }
 
 public struct WindowsFoundation_DateTime: Hashable, Codable {
@@ -37,33 +37,6 @@ public struct WindowsFoundation_DateTime: Hashable, Codable {
 
 public typealias WindowsFoundation_DeferralCompletedHandler = () throws -> Void
 public typealias WindowsFoundation_EventHandler<T> = (WindowsRuntime.IInspectable?, T) throws -> Void
-
-public struct WindowsFoundation_EventRegistrationToken: Hashable, Codable {
-    public var value: Int64 = 0
-
-    public init() {
-    }
-
-    public init(value: Int64) {
-        self.value = value
-    }
-}
-
-public struct WindowsFoundation_FoundationContract: Hashable, Codable {
-    public init() {
-    }
-}
-
-public struct WindowsFoundation_HResult: Hashable, Codable {
-    public var value: Int32 = 0
-
-    public init() {
-    }
-
-    public init(value: Int32) {
-        self.value = value
-    }
-}
 
 public protocol WindowsFoundation_IAsyncActionProtocol: IInspectableProtocol {
     var completed: WindowsFoundation_AsyncActionCompletedHandler { get throws }
@@ -88,7 +61,7 @@ public protocol WindowsFoundation_IAsyncActionWithProgressProtocol<TProgress>: I
 public typealias WindowsFoundation_IAsyncActionWithProgress<TProgress> = any WindowsFoundation_IAsyncActionWithProgressProtocol<TProgress>
 
 public protocol WindowsFoundation_IAsyncInfoProtocol: IInspectableProtocol {
-    var errorCode: WindowsFoundation_HResult { get throws }
+    var errorCode: COM.HResult { get throws }
     var id: UInt32 { get throws }
     var status: WindowsFoundation_AsyncStatus { get throws }
 
@@ -222,47 +195,47 @@ public struct WindowsFoundation_PropertyType: RawRepresentable, Hashable, Codabl
         self.rawValue = rawValue
     }
 
-    public static let empty: Self = Self(rawValue: 0)
-    public static let uint8: Self = Self(rawValue: 1)
-    public static let int16: Self = Self(rawValue: 2)
-    public static let uint16: Self = Self(rawValue: 3)
-    public static let int32: Self = Self(rawValue: 4)
-    public static let uint32: Self = Self(rawValue: 5)
-    public static let int64: Self = Self(rawValue: 6)
-    public static let uint64: Self = Self(rawValue: 7)
-    public static let single: Self = Self(rawValue: 8)
-    public static let double: Self = Self(rawValue: 9)
-    public static let char16: Self = Self(rawValue: 10)
-    public static let boolean: Self = Self(rawValue: 11)
-    public static let string: Self = Self(rawValue: 12)
-    public static let inspectable: Self = Self(rawValue: 13)
-    public static let dateTime: Self = Self(rawValue: 14)
-    public static let timeSpan: Self = Self(rawValue: 15)
-    public static let guid: Self = Self(rawValue: 16)
-    public static let point: Self = Self(rawValue: 17)
-    public static let size: Self = Self(rawValue: 18)
-    public static let rect: Self = Self(rawValue: 19)
-    public static let otherType: Self = Self(rawValue: 20)
-    public static let uint8Array: Self = Self(rawValue: 1025)
-    public static let int16Array: Self = Self(rawValue: 1026)
-    public static let uint16Array: Self = Self(rawValue: 1027)
-    public static let int32Array: Self = Self(rawValue: 1028)
-    public static let uint32Array: Self = Self(rawValue: 1029)
-    public static let int64Array: Self = Self(rawValue: 1030)
-    public static let uint64Array: Self = Self(rawValue: 1031)
-    public static let singleArray: Self = Self(rawValue: 1032)
-    public static let doubleArray: Self = Self(rawValue: 1033)
-    public static let char16Array: Self = Self(rawValue: 1034)
-    public static let booleanArray: Self = Self(rawValue: 1035)
-    public static let stringArray: Self = Self(rawValue: 1036)
-    public static let inspectableArray: Self = Self(rawValue: 1037)
-    public static let dateTimeArray: Self = Self(rawValue: 1038)
-    public static let timeSpanArray: Self = Self(rawValue: 1039)
-    public static let guidArray: Self = Self(rawValue: 1040)
-    public static let pointArray: Self = Self(rawValue: 1041)
-    public static let sizeArray: Self = Self(rawValue: 1042)
-    public static let rectArray: Self = Self(rawValue: 1043)
-    public static let otherTypeArray: Self = Self(rawValue: 1044)
+    public static let empty = Self(rawValue: 0)
+    public static let uint8 = Self(rawValue: 1)
+    public static let int16 = Self(rawValue: 2)
+    public static let uint16 = Self(rawValue: 3)
+    public static let int32 = Self(rawValue: 4)
+    public static let uint32 = Self(rawValue: 5)
+    public static let int64 = Self(rawValue: 6)
+    public static let uint64 = Self(rawValue: 7)
+    public static let single = Self(rawValue: 8)
+    public static let double = Self(rawValue: 9)
+    public static let char16 = Self(rawValue: 10)
+    public static let boolean = Self(rawValue: 11)
+    public static let string = Self(rawValue: 12)
+    public static let inspectable = Self(rawValue: 13)
+    public static let dateTime = Self(rawValue: 14)
+    public static let timeSpan = Self(rawValue: 15)
+    public static let guid = Self(rawValue: 16)
+    public static let point = Self(rawValue: 17)
+    public static let size = Self(rawValue: 18)
+    public static let rect = Self(rawValue: 19)
+    public static let otherType = Self(rawValue: 20)
+    public static let uint8Array = Self(rawValue: 1025)
+    public static let int16Array = Self(rawValue: 1026)
+    public static let uint16Array = Self(rawValue: 1027)
+    public static let int32Array = Self(rawValue: 1028)
+    public static let uint32Array = Self(rawValue: 1029)
+    public static let int64Array = Self(rawValue: 1030)
+    public static let uint64Array = Self(rawValue: 1031)
+    public static let singleArray = Self(rawValue: 1032)
+    public static let doubleArray = Self(rawValue: 1033)
+    public static let char16Array = Self(rawValue: 1034)
+    public static let booleanArray = Self(rawValue: 1035)
+    public static let stringArray = Self(rawValue: 1036)
+    public static let inspectableArray = Self(rawValue: 1037)
+    public static let dateTimeArray = Self(rawValue: 1038)
+    public static let timeSpanArray = Self(rawValue: 1039)
+    public static let guidArray = Self(rawValue: 1040)
+    public static let pointArray = Self(rawValue: 1041)
+    public static let sizeArray = Self(rawValue: 1042)
+    public static let rectArray = Self(rawValue: 1043)
+    public static let otherTypeArray = Self(rawValue: 1044)
 }
 
 public struct WindowsFoundation_Rect: Hashable, Codable {
