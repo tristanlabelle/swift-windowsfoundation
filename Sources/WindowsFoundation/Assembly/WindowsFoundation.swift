@@ -38,7 +38,7 @@ public struct WindowsFoundation_DateTime: Hashable, Codable {
 public typealias WindowsFoundation_DeferralCompletedHandler = () throws -> Void
 public typealias WindowsFoundation_EventHandler<T> = (WindowsRuntime.IInspectable?, T) throws -> Void
 
-public protocol WindowsFoundation_IAsyncActionProtocol: IInspectableProtocol {
+public protocol WindowsFoundation_IAsyncActionProtocol: WindowsFoundation_IAsyncInfoProtocol {
     var completed: WindowsFoundation_AsyncActionCompletedHandler { get throws }
     func completed(_ newValue: WindowsFoundation_AsyncActionCompletedHandler?) throws
 
@@ -47,7 +47,7 @@ public protocol WindowsFoundation_IAsyncActionProtocol: IInspectableProtocol {
 
 public typealias WindowsFoundation_IAsyncAction = any WindowsFoundation_IAsyncActionProtocol
 
-public protocol WindowsFoundation_IAsyncActionWithProgressProtocol<TProgress>: IInspectableProtocol {
+public protocol WindowsFoundation_IAsyncActionWithProgressProtocol<TProgress>: WindowsFoundation_IAsyncInfoProtocol {
     associatedtype TProgress
 
     var progress: WindowsFoundation_AsyncActionProgressHandler<TProgress> { get throws }
@@ -71,7 +71,7 @@ public protocol WindowsFoundation_IAsyncInfoProtocol: IInspectableProtocol {
 
 public typealias WindowsFoundation_IAsyncInfo = any WindowsFoundation_IAsyncInfoProtocol
 
-public protocol WindowsFoundation_IAsyncOperationWithProgressProtocol<TResult, TProgress>: IInspectableProtocol {
+public protocol WindowsFoundation_IAsyncOperationWithProgressProtocol<TResult, TProgress>: WindowsFoundation_IAsyncInfoProtocol {
     associatedtype TResult
     associatedtype TProgress
 
@@ -85,7 +85,7 @@ public protocol WindowsFoundation_IAsyncOperationWithProgressProtocol<TResult, T
 
 public typealias WindowsFoundation_IAsyncOperationWithProgress<TResult, TProgress> = any WindowsFoundation_IAsyncOperationWithProgressProtocol<TResult, TProgress>
 
-public protocol WindowsFoundation_IAsyncOperationProtocol<TResult>: IInspectableProtocol {
+public protocol WindowsFoundation_IAsyncOperationProtocol<TResult>: WindowsFoundation_IAsyncInfoProtocol {
     associatedtype TResult
 
     var completed: WindowsFoundation_AsyncOperationCompletedHandler<TResult> { get throws }
@@ -102,7 +102,7 @@ public protocol WindowsFoundation_IClosableProtocol: IInspectableProtocol {
 
 public typealias WindowsFoundation_IClosable = any WindowsFoundation_IClosableProtocol
 
-internal protocol WindowsFoundation_IDeferralProtocol: IInspectableProtocol {
+internal protocol WindowsFoundation_IDeferralProtocol: WindowsFoundation_IClosableProtocol {
     func complete() throws
 }
 
@@ -112,7 +112,7 @@ public protocol WindowsFoundation_IPropertyValueProtocol: IInspectableProtocol {
     var isNumericScalar: Bool { get throws }
     var type: WindowsFoundation_PropertyType { get throws }
 
-    func getUInt8() throws -> Int8
+    func getUInt8() throws -> UInt8
     func getInt16() throws -> Int16
     func getUInt16() throws -> UInt16
     func getInt32() throws -> Int32
@@ -130,7 +130,7 @@ public protocol WindowsFoundation_IPropertyValueProtocol: IInspectableProtocol {
     func getPoint() throws -> WindowsFoundation_Point
     func getSize() throws -> WindowsFoundation_Size
     func getRect() throws -> WindowsFoundation_Rect
-    func getUInt8Array(_ value: inout [Int8]) throws
+    func getUInt8Array(_ value: inout [UInt8]) throws
     func getInt16Array(_ value: inout [Int16]) throws
     func getUInt16Array(_ value: inout [UInt16]) throws
     func getInt32Array(_ value: inout [Int32]) throws
@@ -153,7 +153,7 @@ public protocol WindowsFoundation_IPropertyValueProtocol: IInspectableProtocol {
 
 public typealias WindowsFoundation_IPropertyValue = any WindowsFoundation_IPropertyValueProtocol
 
-public protocol WindowsFoundation_IReferenceArrayProtocol<T>: IInspectableProtocol {
+public protocol WindowsFoundation_IReferenceArrayProtocol<T>: WindowsFoundation_IPropertyValueProtocol {
     associatedtype T
 
     var value: [T] { get throws }
@@ -161,7 +161,7 @@ public protocol WindowsFoundation_IReferenceArrayProtocol<T>: IInspectableProtoc
 
 public typealias WindowsFoundation_IReferenceArray<T> = any WindowsFoundation_IReferenceArrayProtocol<T>
 
-public protocol WindowsFoundation_IReferenceProtocol<T>: IInspectableProtocol {
+public protocol WindowsFoundation_IReferenceProtocol<T>: WindowsFoundation_IPropertyValueProtocol {
     associatedtype T
 
     var value: T { get throws }

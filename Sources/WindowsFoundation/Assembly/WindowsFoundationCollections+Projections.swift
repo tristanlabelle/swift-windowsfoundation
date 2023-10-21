@@ -14,7 +14,7 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
     public typealias V = WindowsRuntime.IInspectable?
     public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
     public typealias SwiftObject = WindowsFoundationCollections_IPropertySet
-    public typealias COMInterface = __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
+    public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
 
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
@@ -23,7 +23,7 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
 
 public final class WindowsFoundationCollections_IVectorChangedEventArgsProjection: WinRTProjectionBase<WindowsFoundationCollections_IVectorChangedEventArgsProjection>, WinRTProjection, WindowsFoundationCollections_IVectorChangedEventArgsProtocol {
     public typealias SwiftObject = WindowsFoundationCollections_IVectorChangedEventArgs
-    public typealias COMInterface = __x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgs
+    public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgs
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgsVtbl
 
     public static let iid = IID(0x575933DF, 0x34FE, 0x4480, 0xAF15, 0x07691F3D5D9B)
@@ -51,23 +51,15 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
     public typealias V = WindowsRuntime.IInspectable?
     public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
     public typealias SwiftObject = WindowsFoundationCollections_PropertySet
-    public typealias COMInterface = __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
+    public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
 
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.PropertySet"
-}
 
-public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<WindowsFoundationCollections_StringMap>, WinRTProjection {
-    public typealias K = String
-    public typealias V = String
-    public typealias T = WindowsFoundationCollections_IKeyValuePair<K, V>?
-    public typealias SwiftObject = WindowsFoundationCollections_StringMap
-    public typealias COMInterface = __FIMap_2_HSTRING_HSTRING
-    public typealias COMVirtualTable = CWindowsFoundation.__FIMap_2_HSTRING_HSTRINGVtbl
-
-    public static let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
-    public static let runtimeClassName = "Windows.Foundation.Collections.StringMap"
+    // IPropertySet
+    // IObservableMap`2
+    // IMap`2
 
     public var size: UInt32 {
         get throws {
@@ -100,6 +92,66 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
     public func clear() throws {
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Clear(comPointer))
     }
+
+    // IIterable`1
+
+    public func first() throws -> WindowsFoundationCollections_IIterator<T>? {
+        fatalError("Not implemented: \(#function)")
+    }
+}
+
+public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<WindowsFoundationCollections_StringMap>, WinRTProjection {
+    public typealias K = String
+    public typealias V = String
+    public typealias T = WindowsFoundationCollections_IKeyValuePair<K, V>?
+    public typealias SwiftObject = WindowsFoundationCollections_StringMap
+    public typealias COMInterface = CWindowsFoundation.__FIMap_2_HSTRING_HSTRING
+    public typealias COMVirtualTable = CWindowsFoundation.__FIMap_2_HSTRING_HSTRINGVtbl
+
+    public static let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
+    public static let runtimeClassName = "Windows.Foundation.Collections.StringMap"
+
+    // IMap`2
+
+    public var size: UInt32 {
+        get throws {
+            var _result: UINT32 = 0
+            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Size(comPointer, &_result))
+            return _result
+        }
+    }
+
+    public func lookup(_ key: K) throws -> V {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    public func hasKey(_ key: K) throws -> Bool {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    public func getView() throws -> WindowsFoundationCollections_IMapView<K, V>? {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    public func insert(_ key: K, _ value: V) throws -> Bool {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    public func remove(_ key: K) throws {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    public func clear() throws {
+        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Clear(comPointer))
+    }
+
+    // IIterable`1
+
+    public func first() throws -> WindowsFoundationCollections_IIterator<T>? {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    // IObservableMap`2
 }
 
 public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<WindowsFoundationCollections_ValueSet>, WinRTProjection {
@@ -107,9 +159,51 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
     public typealias V = WindowsRuntime.IInspectable?
     public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
     public typealias SwiftObject = WindowsFoundationCollections_ValueSet
-    public typealias COMInterface = __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
+    public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
 
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.ValueSet"
+
+    // IPropertySet
+    // IObservableMap`2
+    // IMap`2
+
+    public var size: UInt32 {
+        get throws {
+            var _result: UINT32 = 0
+            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Size(comPointer, &_result))
+            return _result
+        }
+    }
+
+    public func lookup(_ key: K) throws -> V {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    public func hasKey(_ key: K) throws -> Bool {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    public func getView() throws -> WindowsFoundationCollections_IMapView<K, V>? {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    public func insert(_ key: K, _ value: V) throws -> Bool {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    public func remove(_ key: K) throws {
+        fatalError("Not implemented: \(#function)")
+    }
+
+    public func clear() throws {
+        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Clear(comPointer))
+    }
+
+    // IIterable`1
+
+    public func first() throws -> WindowsFoundationCollections_IIterator<T>? {
+        fatalError("Not implemented: \(#function)")
+    }
 }

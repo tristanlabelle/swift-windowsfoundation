@@ -56,7 +56,7 @@ public protocol WindowsFoundationCollections_IMapChangedEventArgsProtocol<K>: II
 
 public typealias WindowsFoundationCollections_IMapChangedEventArgs<K> = any WindowsFoundationCollections_IMapChangedEventArgsProtocol<K>
 
-public protocol WindowsFoundationCollections_IMapViewProtocol<K, V>: IInspectableProtocol {
+public protocol WindowsFoundationCollections_IMapViewProtocol<K, V>: WindowsFoundationCollections_IIterableProtocol where T == WindowsFoundationCollections_IKeyValuePair<K, V>? {
     associatedtype K
     associatedtype V
 
@@ -69,7 +69,7 @@ public protocol WindowsFoundationCollections_IMapViewProtocol<K, V>: IInspectabl
 
 public typealias WindowsFoundationCollections_IMapView<K, V> = any WindowsFoundationCollections_IMapViewProtocol<K, V>
 
-public protocol WindowsFoundationCollections_IMapProtocol<K, V>: IInspectableProtocol {
+public protocol WindowsFoundationCollections_IMapProtocol<K, V>: WindowsFoundationCollections_IIterableProtocol where T == WindowsFoundationCollections_IKeyValuePair<K, V>? {
     associatedtype K
     associatedtype V
 
@@ -85,20 +85,20 @@ public protocol WindowsFoundationCollections_IMapProtocol<K, V>: IInspectablePro
 
 public typealias WindowsFoundationCollections_IMap<K, V> = any WindowsFoundationCollections_IMapProtocol<K, V>
 
-public protocol WindowsFoundationCollections_IObservableMapProtocol<K, V>: IInspectableProtocol {
+public protocol WindowsFoundationCollections_IObservableMapProtocol<K, V>: WindowsFoundationCollections_IMapProtocol {
     associatedtype K
     associatedtype V
 }
 
 public typealias WindowsFoundationCollections_IObservableMap<K, V> = any WindowsFoundationCollections_IObservableMapProtocol<K, V>
 
-public protocol WindowsFoundationCollections_IObservableVectorProtocol<T>: IInspectableProtocol {
+public protocol WindowsFoundationCollections_IObservableVectorProtocol<T>: WindowsFoundationCollections_IVectorProtocol {
     associatedtype T
 }
 
 public typealias WindowsFoundationCollections_IObservableVector<T> = any WindowsFoundationCollections_IObservableVectorProtocol<T>
 
-public protocol WindowsFoundationCollections_IPropertySetProtocol: IInspectableProtocol {
+public protocol WindowsFoundationCollections_IPropertySetProtocol: WindowsFoundationCollections_IObservableMapProtocol, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol where K == String, V == WindowsRuntime.IInspectable?, T == WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>? {
 }
 
 public typealias WindowsFoundationCollections_IPropertySet = any WindowsFoundationCollections_IPropertySetProtocol
@@ -110,7 +110,7 @@ public protocol WindowsFoundationCollections_IVectorChangedEventArgsProtocol: II
 
 public typealias WindowsFoundationCollections_IVectorChangedEventArgs = any WindowsFoundationCollections_IVectorChangedEventArgsProtocol
 
-public protocol WindowsFoundationCollections_IVectorViewProtocol<T>: IInspectableProtocol {
+public protocol WindowsFoundationCollections_IVectorViewProtocol<T>: WindowsFoundationCollections_IIterableProtocol {
     associatedtype T
 
     var size: UInt32 { get throws }
@@ -122,7 +122,7 @@ public protocol WindowsFoundationCollections_IVectorViewProtocol<T>: IInspectabl
 
 public typealias WindowsFoundationCollections_IVectorView<T> = any WindowsFoundationCollections_IVectorViewProtocol<T>
 
-public protocol WindowsFoundationCollections_IVectorProtocol<T>: IInspectableProtocol {
+public protocol WindowsFoundationCollections_IVectorProtocol<T>: WindowsFoundationCollections_IIterableProtocol {
     associatedtype T
 
     var size: UInt32 { get throws }
