@@ -121,7 +121,7 @@ public protocol WindowsFoundation_IPropertyValueProtocol: IInspectableProtocol {
     func getUInt64() throws -> UInt64
     func getSingle() throws -> Float
     func getDouble() throws -> Double
-    func getChar16() throws -> UTF16.CodeUnit
+    func getChar16() throws -> COM.WideChar
     func getBoolean() throws -> Bool
     func getString() throws -> String
     func getGuid() throws -> Foundation.UUID
@@ -139,7 +139,7 @@ public protocol WindowsFoundation_IPropertyValueProtocol: IInspectableProtocol {
     func getUInt64Array(_ value: inout [UInt64]) throws
     func getSingleArray(_ value: inout [Float]) throws
     func getDoubleArray(_ value: inout [Double]) throws
-    func getChar16Array(_ value: inout [UTF16.CodeUnit]) throws
+    func getChar16Array(_ value: inout [COM.WideChar]) throws
     func getBooleanArray(_ value: inout [Bool]) throws
     func getStringArray(_ value: inout [String]) throws
     func getInspectableArray(_ value: inout [WindowsRuntime.IInspectable?]) throws
