@@ -9,10 +9,31 @@ extension WindowsFoundationCollections_CollectionChange: WindowsRuntime.EnumProj
     public typealias CEnum = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CCollectionChange
 }
 
+public enum WindowsFoundationCollections_IIterableProjection<T> {
+}
+
+public enum WindowsFoundationCollections_IIteratorProjection<T> {
+}
+
+public enum WindowsFoundationCollections_IKeyValuePairProjection<K, V> {
+}
+
+public enum WindowsFoundationCollections_IMapChangedEventArgsProjection<K> {
+}
+
+public enum WindowsFoundationCollections_IMapViewProjection<K, V> {
+}
+
+public enum WindowsFoundationCollections_IMapProjection<K, V> {
+}
+
+public enum WindowsFoundationCollections_IObservableMapProjection<K, V> {
+}
+
+public enum WindowsFoundationCollections_IObservableVectorProjection<T> {
+}
+
 public final class WindowsFoundationCollections_IPropertySetProjection: WinRTProjectionBase<WindowsFoundationCollections_IPropertySetProjection>, WinRTProjection, WindowsFoundationCollections_IPropertySetProtocol {
-    public typealias K = String
-    public typealias V = WindowsRuntime.IInspectable?
-    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
     public typealias SwiftObject = WindowsFoundationCollections_IPropertySet
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
@@ -20,7 +41,12 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.IPropertySet"
 
-    // IObservableMap`2
+    public typealias K = String
+    public typealias V = WindowsRuntime.IInspectable?
+    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
+
+    // Windows.Foundation.Collections.IPropertySet
+    // Windows.Foundation.Collections.IObservableMap`2<String, Object>
 
     private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable>! = nil
 
@@ -29,7 +55,7 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
         _iobservableMap = try _queryInterfacePointer(IID(0x65DF2BF5, 0xBF39, 0x41B5, 0xAEBC, 0x5A9D865E472B)).cast(to: __FIObservableMap_2_HSTRING_IInspectable.self)
     }
 
-    // IMap`2
+    // Windows.Foundation.Collections.IMap`2<String, Object>
 
     private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable>! = nil
 
@@ -47,29 +73,47 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
         }
     }
 
-    public func lookup(_ key: K) throws -> V {
+    public func lookup(_ key: String) throws -> WindowsRuntime.IInspectable? {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        var _result: IInspectableProjection.COMPointer? = nil
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Lookup(_imap, key, &_result))
+        return IInspectableProjection.toSwift(consuming: _result)
     }
 
-    public func hasKey(_ key: K) throws -> Bool {
+    public func hasKey(_ key: String) throws -> Bool {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        var _result: boolean = 0
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.HasKey(_imap, key, &_result))
+        return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func getView() throws -> WindowsFoundationCollections_IMapView<K, V>? {
+    public func getView() throws -> WindowsFoundationCollections_IMapView<String, WindowsRuntime.IInspectable?>? {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        var _result: UnsafeMutablePointer<__FIMapView_2_HSTRING_IInspectable>? = nil
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.GetView(_imap, &_result))
+        return WindowsFoundationCollections_IMapViewProjection<String, WindowsRuntime.IInspectable?>.Projection.toSwift(consuming: _result)
     }
 
-    public func insert(_ key: K, _ value: V) throws -> Bool {
+    public func insert(_ key: String, _ value: WindowsRuntime.IInspectable?) throws -> Bool {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        let value = try IInspectableProjection.toABI(value)
+        defer { IInspectableProjection.release(value) }
+        var _result: boolean = 0
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Insert(_imap, key, value, &_result))
+        return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func remove(_ key: K) throws {
+    public func remove(_ key: String) throws {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Remove(_imap, key))
     }
 
     public func clear() throws {
@@ -77,7 +121,7 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
         try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Clear(_imap))
     }
 
-    // IIterable`1
+    // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
 
     private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
 
@@ -86,9 +130,11 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
         _iiterable = try _queryInterfacePointer(IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
     }
 
-    public func first() throws -> WindowsFoundationCollections_IIterator<T>? {
+    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>? {
         try _initIIterable()
-        fatalError("Not implemented: \(#function)")
+        var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
+        try HResult.throwIfFailed(_iiterable.pointee.lpVtbl.pointee.First(_iiterable, &_result))
+        return WindowsFoundationCollections_IIteratorProjection<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>.Projection.toSwift(consuming: _result)
     }
 
     deinit {
@@ -105,6 +151,8 @@ public final class WindowsFoundationCollections_IVectorChangedEventArgsProjectio
 
     public static let iid = IID(0x575933DF, 0x34FE, 0x4480, 0xAF15, 0x07691F3D5D9B)
     public static let runtimeClassName = "Windows.Foundation.Collections.IVectorChangedEventArgs"
+
+    // Windows.Foundation.Collections.IVectorChangedEventArgs
 
     public var collectionChange: WindowsFoundationCollections_CollectionChange {
         get throws {
@@ -123,10 +171,16 @@ public final class WindowsFoundationCollections_IVectorChangedEventArgsProjectio
     }
 }
 
-public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase<WindowsFoundationCollections_PropertySet>, WinRTProjection {
-    public typealias K = String
-    public typealias V = WindowsRuntime.IInspectable?
-    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
+public enum WindowsFoundationCollections_IVectorViewProjection<T> {
+}
+
+public enum WindowsFoundationCollections_IVectorProjection<T> {
+}
+
+public enum WindowsFoundationCollections_MapChangedEventHandlerProjection<K, V> {
+}
+
+public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase<WindowsFoundationCollections_PropertySet>, WinRTProjection, WindowsFoundationCollections_IPropertySetProtocol, WindowsFoundationCollections_IObservableMapProtocol, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol {
     public typealias SwiftObject = WindowsFoundationCollections_PropertySet
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
@@ -134,7 +188,12 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.PropertySet"
 
-    // IObservableMap`2
+    public typealias K = String
+    public typealias V = WindowsRuntime.IInspectable?
+    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
+
+    // Windows.Foundation.Collections.IPropertySet
+    // Windows.Foundation.Collections.IObservableMap`2<String, Object>
 
     private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable>! = nil
 
@@ -143,7 +202,7 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
         _iobservableMap = try _queryInterfacePointer(IID(0x65DF2BF5, 0xBF39, 0x41B5, 0xAEBC, 0x5A9D865E472B)).cast(to: __FIObservableMap_2_HSTRING_IInspectable.self)
     }
 
-    // IMap`2
+    // Windows.Foundation.Collections.IMap`2<String, Object>
 
     private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable>! = nil
 
@@ -161,29 +220,47 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
         }
     }
 
-    public func lookup(_ key: K) throws -> V {
+    public func lookup(_ key: String) throws -> WindowsRuntime.IInspectable? {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        var _result: IInspectableProjection.COMPointer? = nil
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Lookup(_imap, key, &_result))
+        return IInspectableProjection.toSwift(consuming: _result)
     }
 
-    public func hasKey(_ key: K) throws -> Bool {
+    public func hasKey(_ key: String) throws -> Bool {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        var _result: boolean = 0
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.HasKey(_imap, key, &_result))
+        return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func getView() throws -> WindowsFoundationCollections_IMapView<K, V>? {
+    public func getView() throws -> WindowsFoundationCollections_IMapView<String, WindowsRuntime.IInspectable?>? {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        var _result: UnsafeMutablePointer<__FIMapView_2_HSTRING_IInspectable>? = nil
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.GetView(_imap, &_result))
+        return WindowsFoundationCollections_IMapViewProjection<String, WindowsRuntime.IInspectable?>.Projection.toSwift(consuming: _result)
     }
 
-    public func insert(_ key: K, _ value: V) throws -> Bool {
+    public func insert(_ key: String, _ value: WindowsRuntime.IInspectable?) throws -> Bool {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        let value = try IInspectableProjection.toABI(value)
+        defer { IInspectableProjection.release(value) }
+        var _result: boolean = 0
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Insert(_imap, key, value, &_result))
+        return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func remove(_ key: K) throws {
+    public func remove(_ key: String) throws {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Remove(_imap, key))
     }
 
     public func clear() throws {
@@ -191,7 +268,7 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
         try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Clear(_imap))
     }
 
-    // IIterable`1
+    // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
 
     private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
 
@@ -200,9 +277,11 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
         _iiterable = try _queryInterfacePointer(IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
     }
 
-    public func first() throws -> WindowsFoundationCollections_IIterator<T>? {
+    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>? {
         try _initIIterable()
-        fatalError("Not implemented: \(#function)")
+        var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
+        try HResult.throwIfFailed(_iiterable.pointee.lpVtbl.pointee.First(_iiterable, &_result))
+        return WindowsFoundationCollections_IIteratorProjection<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>.Projection.toSwift(consuming: _result)
     }
 
     deinit {
@@ -212,16 +291,19 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
     }
 }
 
-public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<WindowsFoundationCollections_StringMap>, WinRTProjection {
-    public typealias K = String
-    public typealias V = String
-    public typealias T = WindowsFoundationCollections_IKeyValuePair<K, V>?
+public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<WindowsFoundationCollections_StringMap>, WinRTProjection, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol, WindowsFoundationCollections_IObservableMapProtocol {
     public typealias SwiftObject = WindowsFoundationCollections_StringMap
     public typealias COMInterface = CWindowsFoundation.__FIMap_2_HSTRING_HSTRING
     public typealias COMVirtualTable = CWindowsFoundation.__FIMap_2_HSTRING_HSTRINGVtbl
 
     public static let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
     public static let runtimeClassName = "Windows.Foundation.Collections.StringMap"
+
+    public typealias K = String
+    public typealias V = String
+    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, String>?
+
+    // Windows.Foundation.Collections.IMap`2<String, String>
 
     public var size: UInt32 {
         get throws {
@@ -231,31 +313,49 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
         }
     }
 
-    public func lookup(_ key: K) throws -> V {
-        fatalError("Not implemented: \(#function)")
+    public func lookup(_ key: String) throws -> String {
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        var _result: HSTRING? = nil
+        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Lookup(comPointer, key, &_result))
+        return HStringProjection.toSwift(consuming: _result)
     }
 
-    public func hasKey(_ key: K) throws -> Bool {
-        fatalError("Not implemented: \(#function)")
+    public func hasKey(_ key: String) throws -> Bool {
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        var _result: boolean = 0
+        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.HasKey(comPointer, key, &_result))
+        return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func getView() throws -> WindowsFoundationCollections_IMapView<K, V>? {
-        fatalError("Not implemented: \(#function)")
+    public func getView() throws -> WindowsFoundationCollections_IMapView<String, String>? {
+        var _result: UnsafeMutablePointer<__FIMapView_2_HSTRING_HSTRING>? = nil
+        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetView(comPointer, &_result))
+        return WindowsFoundationCollections_IMapViewProjection<String, String>.Projection.toSwift(consuming: _result)
     }
 
-    public func insert(_ key: K, _ value: V) throws -> Bool {
-        fatalError("Not implemented: \(#function)")
+    public func insert(_ key: String, _ value: String) throws -> Bool {
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        let value = try HStringProjection.toABI(value)
+        defer { HStringProjection.release(value) }
+        var _result: boolean = 0
+        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Insert(comPointer, key, value, &_result))
+        return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func remove(_ key: K) throws {
-        fatalError("Not implemented: \(#function)")
+    public func remove(_ key: String) throws {
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Remove(comPointer, key))
     }
 
     public func clear() throws {
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Clear(comPointer))
     }
 
-    // IIterable`1
+    // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
 
     private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING>! = nil
 
@@ -264,12 +364,14 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
         _iiterable = try _queryInterfacePointer(IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING.self)
     }
 
-    public func first() throws -> WindowsFoundationCollections_IIterator<T>? {
+    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<String, String>?>? {
         try _initIIterable()
-        fatalError("Not implemented: \(#function)")
+        var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_HSTRING>? = nil
+        try HResult.throwIfFailed(_iiterable.pointee.lpVtbl.pointee.First(_iiterable, &_result))
+        return WindowsFoundationCollections_IIteratorProjection<WindowsFoundationCollections_IKeyValuePair<String, String>?>.Projection.toSwift(consuming: _result)
     }
 
-    // IObservableMap`2
+    // Windows.Foundation.Collections.IObservableMap`2<String, String>
 
     private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_HSTRING>! = nil
 
@@ -284,10 +386,7 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
     }
 }
 
-public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<WindowsFoundationCollections_ValueSet>, WinRTProjection {
-    public typealias K = String
-    public typealias V = WindowsRuntime.IInspectable?
-    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
+public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<WindowsFoundationCollections_ValueSet>, WinRTProjection, WindowsFoundationCollections_IPropertySetProtocol, WindowsFoundationCollections_IObservableMapProtocol, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol {
     public typealias SwiftObject = WindowsFoundationCollections_ValueSet
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
@@ -295,7 +394,12 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.ValueSet"
 
-    // IObservableMap`2
+    public typealias K = String
+    public typealias V = WindowsRuntime.IInspectable?
+    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
+
+    // Windows.Foundation.Collections.IPropertySet
+    // Windows.Foundation.Collections.IObservableMap`2<String, Object>
 
     private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable>! = nil
 
@@ -304,7 +408,7 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         _iobservableMap = try _queryInterfacePointer(IID(0x65DF2BF5, 0xBF39, 0x41B5, 0xAEBC, 0x5A9D865E472B)).cast(to: __FIObservableMap_2_HSTRING_IInspectable.self)
     }
 
-    // IMap`2
+    // Windows.Foundation.Collections.IMap`2<String, Object>
 
     private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable>! = nil
 
@@ -322,29 +426,47 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         }
     }
 
-    public func lookup(_ key: K) throws -> V {
+    public func lookup(_ key: String) throws -> WindowsRuntime.IInspectable? {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        var _result: IInspectableProjection.COMPointer? = nil
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Lookup(_imap, key, &_result))
+        return IInspectableProjection.toSwift(consuming: _result)
     }
 
-    public func hasKey(_ key: K) throws -> Bool {
+    public func hasKey(_ key: String) throws -> Bool {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        var _result: boolean = 0
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.HasKey(_imap, key, &_result))
+        return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func getView() throws -> WindowsFoundationCollections_IMapView<K, V>? {
+    public func getView() throws -> WindowsFoundationCollections_IMapView<String, WindowsRuntime.IInspectable?>? {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        var _result: UnsafeMutablePointer<__FIMapView_2_HSTRING_IInspectable>? = nil
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.GetView(_imap, &_result))
+        return WindowsFoundationCollections_IMapViewProjection<String, WindowsRuntime.IInspectable?>.Projection.toSwift(consuming: _result)
     }
 
-    public func insert(_ key: K, _ value: V) throws -> Bool {
+    public func insert(_ key: String, _ value: WindowsRuntime.IInspectable?) throws -> Bool {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        let value = try IInspectableProjection.toABI(value)
+        defer { IInspectableProjection.release(value) }
+        var _result: boolean = 0
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Insert(_imap, key, value, &_result))
+        return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func remove(_ key: K) throws {
+    public func remove(_ key: String) throws {
         try _initIMap()
-        fatalError("Not implemented: \(#function)")
+        let key = try HStringProjection.toABI(key)
+        defer { HStringProjection.release(key) }
+        try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Remove(_imap, key))
     }
 
     public func clear() throws {
@@ -352,7 +474,7 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.Clear(_imap))
     }
 
-    // IIterable`1
+    // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
 
     private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
 
@@ -361,9 +483,11 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         _iiterable = try _queryInterfacePointer(IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
     }
 
-    public func first() throws -> WindowsFoundationCollections_IIterator<T>? {
+    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>? {
         try _initIIterable()
-        fatalError("Not implemented: \(#function)")
+        var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
+        try HResult.throwIfFailed(_iiterable.pointee.lpVtbl.pointee.First(_iiterable, &_result))
+        return WindowsFoundationCollections_IIteratorProjection<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>.Projection.toSwift(consuming: _result)
     }
 
     deinit {
@@ -371,4 +495,7 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         if let _imap { IUnknownPointer.release(_imap) }
         if let _iiterable { IUnknownPointer.release(_iiterable) }
     }
+}
+
+public enum WindowsFoundationCollections_VectorChangedEventHandlerProjection<T> {
 }

@@ -5,6 +5,21 @@ import CWindowsFoundation
 import WindowsRuntime
 import struct Foundation.UUID
 
+public enum WindowsFoundation_AsyncActionProgressHandlerProjection<TProgress> {
+}
+
+public enum WindowsFoundation_AsyncActionWithProgressCompletedHandlerProjection<TProgress> {
+}
+
+public enum WindowsFoundation_AsyncOperationCompletedHandlerProjection<TResult> {
+}
+
+public enum WindowsFoundation_AsyncOperationProgressHandlerProjection<TResult, TProgress> {
+}
+
+public enum WindowsFoundation_AsyncOperationWithProgressCompletedHandlerProjection<TResult, TProgress> {
+}
+
 extension WindowsFoundation_AsyncStatus: WindowsRuntime.EnumProjection {
     public typealias CEnum = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CAsyncStatus
 }
@@ -26,7 +41,7 @@ extension WindowsFoundation_DateTime: COM.ABIInertProjection {
     }
 }
 
-public final class WindowsFoundation_Deferral: WinRTProjectionBase<WindowsFoundation_Deferral>, WinRTProjection {
+public final class WindowsFoundation_Deferral: WinRTProjectionBase<WindowsFoundation_Deferral>, WinRTProjection, WindowsFoundation_IDeferralProtocol, WindowsFoundation_IClosableProtocol {
     public typealias SwiftObject = WindowsFoundation_Deferral
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIDeferral
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIDeferralVtbl
@@ -34,11 +49,13 @@ public final class WindowsFoundation_Deferral: WinRTProjectionBase<WindowsFounda
     public static let iid = IID(0xD6269732, 0x3B7F, 0x46A7, 0xB40B, 0x4FDCA2A2C693)
     public static let runtimeClassName = "Windows.Foundation.Deferral"
 
+    // Windows.Foundation.IDeferral
+
     public func complete() throws {
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Complete(comPointer))
     }
 
-    // IClosable
+    // Windows.Foundation.IClosable
 
     private var _iclosable: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable>! = nil
 
@@ -57,6 +74,9 @@ public final class WindowsFoundation_Deferral: WinRTProjectionBase<WindowsFounda
     }
 }
 
+public enum WindowsFoundation_EventHandlerProjection<T> {
+}
+
 public final class WindowsFoundation_IAsyncActionProjection: WinRTProjectionBase<WindowsFoundation_IAsyncActionProjection>, WinRTProjection, WindowsFoundation_IAsyncActionProtocol {
     public typealias SwiftObject = WindowsFoundation_IAsyncAction
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIAsyncAction
@@ -65,7 +85,9 @@ public final class WindowsFoundation_IAsyncActionProjection: WinRTProjectionBase
     public static let iid = IID(0x5A648006, 0x843A, 0x4DA9, 0x865B, 0x9D26E5DFAD7B)
     public static let runtimeClassName = "Windows.Foundation.IAsyncAction"
 
-    public var completed: WindowsFoundation_AsyncActionCompletedHandler {
+    // Windows.Foundation.IAsyncAction
+
+    public var completed: WindowsFoundation_AsyncActionCompletedHandler? {
         get throws {
             fatalError("Not implemented: \(#function)")
         }
@@ -79,7 +101,7 @@ public final class WindowsFoundation_IAsyncActionProjection: WinRTProjectionBase
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetResults(comPointer))
     }
 
-    // IAsyncInfo
+    // Windows.Foundation.IAsyncInfo
 
     private var _iasyncInfo: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo>! = nil
 
@@ -130,6 +152,9 @@ public final class WindowsFoundation_IAsyncActionProjection: WinRTProjectionBase
     }
 }
 
+public enum WindowsFoundation_IAsyncActionWithProgressProjection<TProgress> {
+}
+
 public final class WindowsFoundation_IAsyncInfoProjection: WinRTProjectionBase<WindowsFoundation_IAsyncInfoProjection>, WinRTProjection, WindowsFoundation_IAsyncInfoProtocol {
     public typealias SwiftObject = WindowsFoundation_IAsyncInfo
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIAsyncInfo
@@ -137,6 +162,8 @@ public final class WindowsFoundation_IAsyncInfoProjection: WinRTProjectionBase<W
 
     public static let iid = IID(0x00000036, 0x0000, 0x0000, 0xC000, 0x000000000046)
     public static let runtimeClassName = "Windows.Foundation.IAsyncInfo"
+
+    // Windows.Foundation.IAsyncInfo
 
     public var errorCode: COM.HResult {
         get throws {
@@ -171,6 +198,12 @@ public final class WindowsFoundation_IAsyncInfoProjection: WinRTProjectionBase<W
     }
 }
 
+public enum WindowsFoundation_IAsyncOperationWithProgressProjection<TResult, TProgress> {
+}
+
+public enum WindowsFoundation_IAsyncOperationProjection<TResult> {
+}
+
 public final class WindowsFoundation_IClosableProjection: WinRTProjectionBase<WindowsFoundation_IClosableProjection>, WinRTProjection, WindowsFoundation_IClosableProtocol {
     public typealias SwiftObject = WindowsFoundation_IClosable
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIClosable
@@ -178,6 +211,8 @@ public final class WindowsFoundation_IClosableProjection: WinRTProjectionBase<Wi
 
     public static let iid = IID(0x30D5A829, 0x7FA4, 0x4026, 0x83BB, 0xD75BAE4EA99E)
     public static let runtimeClassName = "Windows.Foundation.IClosable"
+
+    // Windows.Foundation.IClosable
 
     public func close() throws {
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Close(comPointer))
@@ -192,11 +227,13 @@ internal final class WindowsFoundation_IDeferralProjection: WinRTProjectionBase<
     public static let iid = IID(0xD6269732, 0x3B7F, 0x46A7, 0xB40B, 0x4FDCA2A2C693)
     public static let runtimeClassName = "Windows.Foundation.IDeferral"
 
+    // Windows.Foundation.IDeferral
+
     public func complete() throws {
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Complete(comPointer))
     }
 
-    // IClosable
+    // Windows.Foundation.IClosable
 
     private var _iclosable: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable>! = nil
 
@@ -222,6 +259,8 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
 
     public static let iid = IID(0x4BD682DD, 0x7554, 0x40E9, 0x9A9B, 0x82654EDE7E62)
     public static let runtimeClassName = "Windows.Foundation.IPropertyValue"
+
+    // Windows.Foundation.IPropertyValue
 
     public var isNumericScalar: Bool {
         get throws {
@@ -424,6 +463,12 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
     }
 }
 
+public enum WindowsFoundation_IReferenceArrayProjection<T> {
+}
+
+public enum WindowsFoundation_IReferenceProjection<T> {
+}
+
 public final class WindowsFoundation_IStringableProjection: WinRTProjectionBase<WindowsFoundation_IStringableProjection>, WinRTProjection, WindowsFoundation_IStringableProtocol {
     public typealias SwiftObject = WindowsFoundation_IStringable
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIStringable
@@ -431,6 +476,8 @@ public final class WindowsFoundation_IStringableProjection: WinRTProjectionBase<
 
     public static let iid = IID(0x96369F54, 0x8EB6, 0x48F0, 0xABCE, 0xC1B211E627C3)
     public static let runtimeClassName = "Windows.Foundation.IStringable"
+
+    // Windows.Foundation.IStringable
 
     public func toString() throws -> String {
         var _result: HSTRING? = nil
@@ -461,8 +508,6 @@ extension WindowsFoundation_PropertyType: WindowsRuntime.EnumProjection {
 }
 
 public final class WindowsFoundation_PropertyValue {
-    public static let runtimeClassName = "Windows.Foundation.PropertyValue"
-
     private init() {
     }
 
@@ -470,7 +515,7 @@ public final class WindowsFoundation_PropertyValue {
 
     private static func _initIPropertyValueStatics() throws {
         guard _ipropertyValueStatics == nil else { return }
-        _ipropertyValueStatics = try WindowsRuntime.ActivationFactory.getPointer(activatableId: runtimeClassName, iid: IID(0x629BDBC8, 0xD932, 0x4FF4, 0x96B9, 0x8D96C5C1E858))
+        _ipropertyValueStatics = try WindowsRuntime.ActivationFactory.getPointer(activatableId: "Windows.Foundation.PropertyValue", iid: IID(0x629BDBC8, 0xD932, 0x4FF4, 0x96B9, 0x8D96C5C1E858))
     }
 
     public static func createEmpty() throws -> WindowsRuntime.IInspectable? {
@@ -770,4 +815,7 @@ extension WindowsFoundation_TimeSpan: COM.ABIInertProjection {
     public static func toABI(_ value: Self) -> CWindowsFoundation.__x_ABI_CWindows_CFoundation_CTimeSpan {
         fatalError("Not implemented: \(#function)")
     }
+}
+
+public enum WindowsFoundation_TypedEventHandlerProjection<TSender, TResult> {
 }

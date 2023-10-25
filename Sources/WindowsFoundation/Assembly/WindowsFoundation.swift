@@ -39,7 +39,7 @@ public typealias WindowsFoundation_DeferralCompletedHandler = () throws -> Void
 public typealias WindowsFoundation_EventHandler<T> = (WindowsRuntime.IInspectable?, T) throws -> Void
 
 public protocol WindowsFoundation_IAsyncActionProtocol: WindowsFoundation_IAsyncInfoProtocol {
-    var completed: WindowsFoundation_AsyncActionCompletedHandler { get throws }
+    var completed: WindowsFoundation_AsyncActionCompletedHandler? { get throws }
     func completed(_ newValue: WindowsFoundation_AsyncActionCompletedHandler?) throws
 
     func getResults() throws
@@ -50,9 +50,9 @@ public typealias WindowsFoundation_IAsyncAction = any WindowsFoundation_IAsyncAc
 public protocol WindowsFoundation_IAsyncActionWithProgressProtocol<TProgress>: WindowsFoundation_IAsyncInfoProtocol {
     associatedtype TProgress
 
-    var progress: WindowsFoundation_AsyncActionProgressHandler<TProgress> { get throws }
+    var progress: WindowsFoundation_AsyncActionProgressHandler<TProgress>? { get throws }
     func progress(_ newValue: WindowsFoundation_AsyncActionProgressHandler<TProgress>?) throws
-    var completed: WindowsFoundation_AsyncActionWithProgressCompletedHandler<TProgress> { get throws }
+    var completed: WindowsFoundation_AsyncActionWithProgressCompletedHandler<TProgress>? { get throws }
     func completed(_ newValue: WindowsFoundation_AsyncActionWithProgressCompletedHandler<TProgress>?) throws
 
     func getResults() throws
@@ -75,9 +75,9 @@ public protocol WindowsFoundation_IAsyncOperationWithProgressProtocol<TResult, T
     associatedtype TResult
     associatedtype TProgress
 
-    var progress: WindowsFoundation_AsyncOperationProgressHandler<TResult, TProgress> { get throws }
+    var progress: WindowsFoundation_AsyncOperationProgressHandler<TResult, TProgress>? { get throws }
     func progress(_ newValue: WindowsFoundation_AsyncOperationProgressHandler<TResult, TProgress>?) throws
-    var completed: WindowsFoundation_AsyncOperationWithProgressCompletedHandler<TResult, TProgress> { get throws }
+    var completed: WindowsFoundation_AsyncOperationWithProgressCompletedHandler<TResult, TProgress>? { get throws }
     func completed(_ newValue: WindowsFoundation_AsyncOperationWithProgressCompletedHandler<TResult, TProgress>?) throws
 
     func getResults() throws -> TResult
@@ -88,7 +88,7 @@ public typealias WindowsFoundation_IAsyncOperationWithProgress<TResult, TProgres
 public protocol WindowsFoundation_IAsyncOperationProtocol<TResult>: WindowsFoundation_IAsyncInfoProtocol {
     associatedtype TResult
 
-    var completed: WindowsFoundation_AsyncOperationCompletedHandler<TResult> { get throws }
+    var completed: WindowsFoundation_AsyncOperationCompletedHandler<TResult>? { get throws }
     func completed(_ newValue: WindowsFoundation_AsyncOperationCompletedHandler<TResult>?) throws
 
     func getResults() throws -> TResult
