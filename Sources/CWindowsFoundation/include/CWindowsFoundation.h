@@ -4,6 +4,7 @@
 #include <combaseapi.h>
 #include <winstring.h>
 
+#include <activation.h>
 #include <asyncinfo.h>
 #include <EventToken.h>
 #include <windows.foundation.h>

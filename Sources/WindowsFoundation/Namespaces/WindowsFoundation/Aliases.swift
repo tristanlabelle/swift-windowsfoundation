@@ -4,16 +4,24 @@
 import WindowsFoundationAssembly
 
 public typealias AsyncActionCompletedHandler = WindowsFoundation_AsyncActionCompletedHandler
+public typealias AsyncActionCompletedHandlerProjection = WindowsFoundation_AsyncActionCompletedHandlerProjection
 public typealias AsyncActionProgressHandler<TProgress> = WindowsFoundation_AsyncActionProgressHandler<TProgress>
+public typealias AsyncActionProgressHandlerProjection = WindowsFoundation_AsyncActionProgressHandlerProjection
 public typealias AsyncActionWithProgressCompletedHandler<TProgress> = WindowsFoundation_AsyncActionWithProgressCompletedHandler<TProgress>
+public typealias AsyncActionWithProgressCompletedHandlerProjection = WindowsFoundation_AsyncActionWithProgressCompletedHandlerProjection
 public typealias AsyncOperationCompletedHandler<TResult> = WindowsFoundation_AsyncOperationCompletedHandler<TResult>
+public typealias AsyncOperationCompletedHandlerProjection = WindowsFoundation_AsyncOperationCompletedHandlerProjection
 public typealias AsyncOperationProgressHandler<TResult, TProgress> = WindowsFoundation_AsyncOperationProgressHandler<TResult, TProgress>
+public typealias AsyncOperationProgressHandlerProjection = WindowsFoundation_AsyncOperationProgressHandlerProjection
 public typealias AsyncOperationWithProgressCompletedHandler<TResult, TProgress> = WindowsFoundation_AsyncOperationWithProgressCompletedHandler<TResult, TProgress>
+public typealias AsyncOperationWithProgressCompletedHandlerProjection = WindowsFoundation_AsyncOperationWithProgressCompletedHandlerProjection
 public typealias AsyncStatus = WindowsFoundation_AsyncStatus
 public typealias DateTime = WindowsFoundation_DateTime
 public typealias Deferral = WindowsFoundation_Deferral
 public typealias DeferralCompletedHandler = WindowsFoundation_DeferralCompletedHandler
+public typealias DeferralCompletedHandlerProjection = WindowsFoundation_DeferralCompletedHandlerProjection
 public typealias EventHandler<T> = WindowsFoundation_EventHandler<T>
+public typealias EventHandlerProjection = WindowsFoundation_EventHandlerProjection
 
 public protocol IAsyncActionProtocol: WindowsFoundation_IAsyncActionProtocol {
 }
@@ -25,6 +33,7 @@ public protocol IAsyncActionWithProgressProtocol<TProgress>: WindowsFoundation_I
 }
 
 public typealias IAsyncActionWithProgress<TProgress> = WindowsFoundation_IAsyncActionWithProgress<TProgress>
+public typealias IAsyncActionWithProgressProjection = WindowsFoundation_IAsyncActionWithProgressProjection
 
 public protocol IAsyncInfoProtocol: WindowsFoundation_IAsyncInfoProtocol {
 }
@@ -36,11 +45,13 @@ public protocol IAsyncOperationWithProgressProtocol<TResult, TProgress>: Windows
 }
 
 public typealias IAsyncOperationWithProgress<TResult, TProgress> = WindowsFoundation_IAsyncOperationWithProgress<TResult, TProgress>
+public typealias IAsyncOperationWithProgressProjection = WindowsFoundation_IAsyncOperationWithProgressProjection
 
 public protocol IAsyncOperationProtocol<TResult>: WindowsFoundation_IAsyncOperationProtocol {
 }
 
 public typealias IAsyncOperation<TResult> = WindowsFoundation_IAsyncOperation<TResult>
+public typealias IAsyncOperationProjection = WindowsFoundation_IAsyncOperationProjection
 
 public protocol IClosableProtocol: WindowsFoundation_IClosableProtocol {
 }
@@ -58,11 +69,13 @@ public protocol IReferenceArrayProtocol<T>: WindowsFoundation_IReferenceArrayPro
 }
 
 public typealias IReferenceArray<T> = WindowsFoundation_IReferenceArray<T>
+public typealias IReferenceArrayProjection = WindowsFoundation_IReferenceArrayProjection
 
 public protocol IReferenceProtocol<T>: WindowsFoundation_IReferenceProtocol {
 }
 
 public typealias IReference<T> = WindowsFoundation_IReference<T>
+public typealias IReferenceProjection = WindowsFoundation_IReferenceProjection
 
 public protocol IStringableProtocol: WindowsFoundation_IStringableProtocol {
 }
@@ -76,3 +89,4 @@ public typealias Rect = WindowsFoundation_Rect
 public typealias Size = WindowsFoundation_Size
 public typealias TimeSpan = WindowsFoundation_TimeSpan
 public typealias TypedEventHandler<TSender, TResult> = WindowsFoundation_TypedEventHandler<TSender, TResult>
+public typealias TypedEventHandlerProjection = WindowsFoundation_TypedEventHandlerProjection

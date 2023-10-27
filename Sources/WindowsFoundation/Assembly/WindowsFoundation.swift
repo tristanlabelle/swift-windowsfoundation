@@ -4,17 +4,17 @@
 import WindowsRuntime
 import struct Foundation.UUID
 
-public typealias WindowsFoundation_AsyncActionCompletedHandler = (WindowsFoundation_IAsyncAction?, WindowsFoundation_AsyncStatus) throws -> Void
-public typealias WindowsFoundation_AsyncActionProgressHandler<TProgress> = (WindowsFoundation_IAsyncActionWithProgress<TProgress>?, TProgress) throws -> Void
-public typealias WindowsFoundation_AsyncActionWithProgressCompletedHandler<TProgress> = (WindowsFoundation_IAsyncActionWithProgress<TProgress>?, WindowsFoundation_AsyncStatus) throws -> Void
-public typealias WindowsFoundation_AsyncOperationCompletedHandler<TResult> = (WindowsFoundation_IAsyncOperation<TResult>?, WindowsFoundation_AsyncStatus) throws -> Void
-public typealias WindowsFoundation_AsyncOperationProgressHandler<TResult, TProgress> = (WindowsFoundation_IAsyncOperationWithProgress<TResult, TProgress>?, TProgress) throws -> Void
-public typealias WindowsFoundation_AsyncOperationWithProgressCompletedHandler<TResult, TProgress> = (WindowsFoundation_IAsyncOperationWithProgress<TResult, TProgress>?, WindowsFoundation_AsyncStatus) throws -> Void
+public typealias WindowsFoundation_AsyncActionCompletedHandler = (WindowsFoundation_IAsyncAction?, WindowsFoundation_AsyncStatus) throws -> Swift.Void
+public typealias WindowsFoundation_AsyncActionProgressHandler<TProgress> = (WindowsFoundation_IAsyncActionWithProgress<TProgress>?, TProgress) throws -> Swift.Void
+public typealias WindowsFoundation_AsyncActionWithProgressCompletedHandler<TProgress> = (WindowsFoundation_IAsyncActionWithProgress<TProgress>?, WindowsFoundation_AsyncStatus) throws -> Swift.Void
+public typealias WindowsFoundation_AsyncOperationCompletedHandler<TResult> = (WindowsFoundation_IAsyncOperation<TResult>?, WindowsFoundation_AsyncStatus) throws -> Swift.Void
+public typealias WindowsFoundation_AsyncOperationProgressHandler<TResult, TProgress> = (WindowsFoundation_IAsyncOperationWithProgress<TResult, TProgress>?, TProgress) throws -> Swift.Void
+public typealias WindowsFoundation_AsyncOperationWithProgressCompletedHandler<TResult, TProgress> = (WindowsFoundation_IAsyncOperationWithProgress<TResult, TProgress>?, WindowsFoundation_AsyncStatus) throws -> Swift.Void
 
 public struct WindowsFoundation_AsyncStatus: RawRepresentable, Hashable, Codable {
-    public var rawValue: Int32
+    public var rawValue: Swift.Int32
 
-    public init(rawValue: Int32 = 0) {
+    public init(rawValue: Swift.Int32 = 0) {
         self.rawValue = rawValue
     }
 
@@ -25,18 +25,19 @@ public struct WindowsFoundation_AsyncStatus: RawRepresentable, Hashable, Codable
 }
 
 public struct WindowsFoundation_DateTime: Hashable, Codable {
-    public var universalTime: Int64 = 0
+    public var universalTime: Swift.Int64
 
     public init() {
+        self.universalTime = 0
     }
 
-    public init(universalTime: Int64) {
+    public init(universalTime: Swift.Int64) {
         self.universalTime = universalTime
     }
 }
 
-public typealias WindowsFoundation_DeferralCompletedHandler = () throws -> Void
-public typealias WindowsFoundation_EventHandler<T> = (WindowsRuntime.IInspectable?, T) throws -> Void
+public typealias WindowsFoundation_DeferralCompletedHandler = () throws -> Swift.Void
+public typealias WindowsFoundation_EventHandler<T> = (WindowsRuntime.IInspectable?, T) throws -> Swift.Void
 
 public protocol WindowsFoundation_IAsyncActionProtocol: WindowsFoundation_IAsyncInfoProtocol {
     var completed: WindowsFoundation_AsyncActionCompletedHandler? { get throws }
@@ -62,7 +63,7 @@ public typealias WindowsFoundation_IAsyncActionWithProgress<TProgress> = any Win
 
 public protocol WindowsFoundation_IAsyncInfoProtocol: IInspectableProtocol {
     var errorCode: COM.HResult { get throws }
-    var id: UInt32 { get throws }
+    var id: Swift.UInt32 { get throws }
     var status: WindowsFoundation_AsyncStatus { get throws }
 
     func cancel() throws
@@ -109,39 +110,39 @@ internal protocol WindowsFoundation_IDeferralProtocol: WindowsFoundation_IClosab
 internal typealias WindowsFoundation_IDeferral = any WindowsFoundation_IDeferralProtocol
 
 public protocol WindowsFoundation_IPropertyValueProtocol: IInspectableProtocol {
-    var isNumericScalar: Bool { get throws }
+    var isNumericScalar: Swift.Bool { get throws }
     var type: WindowsFoundation_PropertyType { get throws }
 
-    func getUInt8() throws -> UInt8
-    func getInt16() throws -> Int16
-    func getUInt16() throws -> UInt16
-    func getInt32() throws -> Int32
-    func getUInt32() throws -> UInt32
-    func getInt64() throws -> Int64
-    func getUInt64() throws -> UInt64
-    func getSingle() throws -> Float
-    func getDouble() throws -> Double
+    func getUInt8() throws -> Swift.UInt8
+    func getInt16() throws -> Swift.Int16
+    func getUInt16() throws -> Swift.UInt16
+    func getInt32() throws -> Swift.Int32
+    func getUInt32() throws -> Swift.UInt32
+    func getInt64() throws -> Swift.Int64
+    func getUInt64() throws -> Swift.UInt64
+    func getSingle() throws -> Swift.Float
+    func getDouble() throws -> Swift.Double
     func getChar16() throws -> COM.WideChar
-    func getBoolean() throws -> Bool
-    func getString() throws -> String
+    func getBoolean() throws -> Swift.Bool
+    func getString() throws -> Swift.String
     func getGuid() throws -> Foundation.UUID
     func getDateTime() throws -> WindowsFoundation_DateTime
     func getTimeSpan() throws -> WindowsFoundation_TimeSpan
     func getPoint() throws -> WindowsFoundation_Point
     func getSize() throws -> WindowsFoundation_Size
     func getRect() throws -> WindowsFoundation_Rect
-    func getUInt8Array(_ value: inout [UInt8]) throws
-    func getInt16Array(_ value: inout [Int16]) throws
-    func getUInt16Array(_ value: inout [UInt16]) throws
-    func getInt32Array(_ value: inout [Int32]) throws
-    func getUInt32Array(_ value: inout [UInt32]) throws
-    func getInt64Array(_ value: inout [Int64]) throws
-    func getUInt64Array(_ value: inout [UInt64]) throws
-    func getSingleArray(_ value: inout [Float]) throws
-    func getDoubleArray(_ value: inout [Double]) throws
+    func getUInt8Array(_ value: inout [Swift.UInt8]) throws
+    func getInt16Array(_ value: inout [Swift.Int16]) throws
+    func getUInt16Array(_ value: inout [Swift.UInt16]) throws
+    func getInt32Array(_ value: inout [Swift.Int32]) throws
+    func getUInt32Array(_ value: inout [Swift.UInt32]) throws
+    func getInt64Array(_ value: inout [Swift.Int64]) throws
+    func getUInt64Array(_ value: inout [Swift.UInt64]) throws
+    func getSingleArray(_ value: inout [Swift.Float]) throws
+    func getDoubleArray(_ value: inout [Swift.Double]) throws
     func getChar16Array(_ value: inout [COM.WideChar]) throws
-    func getBooleanArray(_ value: inout [Bool]) throws
-    func getStringArray(_ value: inout [String]) throws
+    func getBooleanArray(_ value: inout [Swift.Bool]) throws
+    func getStringArray(_ value: inout [Swift.String]) throws
     func getInspectableArray(_ value: inout [WindowsRuntime.IInspectable?]) throws
     func getGuidArray(_ value: inout [Foundation.UUID]) throws
     func getDateTimeArray(_ value: inout [WindowsFoundation_DateTime]) throws
@@ -170,28 +171,30 @@ public protocol WindowsFoundation_IReferenceProtocol<T>: WindowsFoundation_IProp
 public typealias WindowsFoundation_IReference<T> = any WindowsFoundation_IReferenceProtocol<T>
 
 public protocol WindowsFoundation_IStringableProtocol: IInspectableProtocol {
-    func toString() throws -> String
+    func toString() throws -> Swift.String
 }
 
 public typealias WindowsFoundation_IStringable = any WindowsFoundation_IStringableProtocol
 
 public struct WindowsFoundation_Point: Hashable, Codable {
-    public var x: Float = 0.0
-    public var y: Float = 0.0
+    public var x: Swift.Float
+    public var y: Swift.Float
 
     public init() {
+        self.x = 0
+        self.y = 0
     }
 
-    public init(x: Float, y: Float) {
+    public init(x: Swift.Float, y: Swift.Float) {
         self.x = x
         self.y = y
     }
 }
 
 public struct WindowsFoundation_PropertyType: RawRepresentable, Hashable, Codable {
-    public var rawValue: Int32
+    public var rawValue: Swift.Int32
 
-    public init(rawValue: Int32 = 0) {
+    public init(rawValue: Swift.Int32 = 0) {
         self.rawValue = rawValue
     }
 
@@ -239,15 +242,19 @@ public struct WindowsFoundation_PropertyType: RawRepresentable, Hashable, Codabl
 }
 
 public struct WindowsFoundation_Rect: Hashable, Codable {
-    public var x: Float = 0.0
-    public var y: Float = 0.0
-    public var width: Float = 0.0
-    public var height: Float = 0.0
+    public var x: Swift.Float
+    public var y: Swift.Float
+    public var width: Swift.Float
+    public var height: Swift.Float
 
     public init() {
+        self.x = 0
+        self.y = 0
+        self.width = 0
+        self.height = 0
     }
 
-    public init(x: Float, y: Float, width: Float, height: Float) {
+    public init(x: Swift.Float, y: Swift.Float, width: Swift.Float, height: Swift.Float) {
         self.x = x
         self.y = y
         self.width = width
@@ -256,27 +263,30 @@ public struct WindowsFoundation_Rect: Hashable, Codable {
 }
 
 public struct WindowsFoundation_Size: Hashable, Codable {
-    public var width: Float = 0.0
-    public var height: Float = 0.0
+    public var width: Swift.Float
+    public var height: Swift.Float
 
     public init() {
+        self.width = 0
+        self.height = 0
     }
 
-    public init(width: Float, height: Float) {
+    public init(width: Swift.Float, height: Swift.Float) {
         self.width = width
         self.height = height
     }
 }
 
 public struct WindowsFoundation_TimeSpan: Hashable, Codable {
-    public var duration: Int64 = 0
+    public var duration: Swift.Int64
 
     public init() {
+        self.duration = 0
     }
 
-    public init(duration: Int64) {
+    public init(duration: Swift.Int64) {
         self.duration = duration
     }
 }
 
-public typealias WindowsFoundation_TypedEventHandler<TSender, TResult> = (TSender, TResult) throws -> Void
+public typealias WindowsFoundation_TypedEventHandler<TSender, TResult> = (TSender, TResult) throws -> Swift.Void

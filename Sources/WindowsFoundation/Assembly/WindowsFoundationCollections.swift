@@ -5,9 +5,9 @@ import WindowsRuntime
 import struct Foundation.UUID
 
 public struct WindowsFoundationCollections_CollectionChange: RawRepresentable, Hashable, Codable {
-    public var rawValue: Int32
+    public var rawValue: Swift.Int32
 
-    public init(rawValue: Int32 = 0) {
+    public init(rawValue: Swift.Int32 = 0) {
         self.rawValue = rawValue
     }
 
@@ -29,10 +29,10 @@ public protocol WindowsFoundationCollections_IIteratorProtocol<T>: IInspectableP
     associatedtype T
 
     var current: T { get throws }
-    var hasCurrent: Bool { get throws }
+    var hasCurrent: Swift.Bool { get throws }
 
-    func moveNext() throws -> Bool
-    func getMany(_ items: [T]) throws -> UInt32
+    func moveNext() throws -> Swift.Bool
+    func getMany(_ items: [T]) throws -> Swift.UInt32
 }
 
 public typealias WindowsFoundationCollections_IIterator<T> = any WindowsFoundationCollections_IIteratorProtocol<T>
@@ -60,10 +60,10 @@ public protocol WindowsFoundationCollections_IMapViewProtocol<K, V>: WindowsFoun
     associatedtype K
     associatedtype V
 
-    var size: UInt32 { get throws }
+    var size: Swift.UInt32 { get throws }
 
     func lookup(_ key: K) throws -> V
-    func hasKey(_ key: K) throws -> Bool
+    func hasKey(_ key: K) throws -> Swift.Bool
     func split(_ first: inout WindowsFoundationCollections_IMapView<K, V>?, _ second: inout WindowsFoundationCollections_IMapView<K, V>?) throws
 }
 
@@ -73,12 +73,12 @@ public protocol WindowsFoundationCollections_IMapProtocol<K, V>: WindowsFoundati
     associatedtype K
     associatedtype V
 
-    var size: UInt32 { get throws }
+    var size: Swift.UInt32 { get throws }
 
     func lookup(_ key: K) throws -> V
-    func hasKey(_ key: K) throws -> Bool
+    func hasKey(_ key: K) throws -> Swift.Bool
     func getView() throws -> WindowsFoundationCollections_IMapView<K, V>?
-    func insert(_ key: K, _ value: V) throws -> Bool
+    func insert(_ key: K, _ value: V) throws -> Swift.Bool
     func remove(_ key: K) throws
     func clear() throws
 }
@@ -98,14 +98,14 @@ public protocol WindowsFoundationCollections_IObservableVectorProtocol<T>: Windo
 
 public typealias WindowsFoundationCollections_IObservableVector<T> = any WindowsFoundationCollections_IObservableVectorProtocol<T>
 
-public protocol WindowsFoundationCollections_IPropertySetProtocol: WindowsFoundationCollections_IObservableMapProtocol, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol where K == String, V == WindowsRuntime.IInspectable?, T == WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>? {
+public protocol WindowsFoundationCollections_IPropertySetProtocol: WindowsFoundationCollections_IObservableMapProtocol, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol where K == Swift.String, V == WindowsRuntime.IInspectable?, T == WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>? {
 }
 
 public typealias WindowsFoundationCollections_IPropertySet = any WindowsFoundationCollections_IPropertySetProtocol
 
 public protocol WindowsFoundationCollections_IVectorChangedEventArgsProtocol: IInspectableProtocol {
     var collectionChange: WindowsFoundationCollections_CollectionChange { get throws }
-    var index: UInt32 { get throws }
+    var index: Swift.UInt32 { get throws }
 }
 
 public typealias WindowsFoundationCollections_IVectorChangedEventArgs = any WindowsFoundationCollections_IVectorChangedEventArgsProtocol
@@ -113,11 +113,11 @@ public typealias WindowsFoundationCollections_IVectorChangedEventArgs = any Wind
 public protocol WindowsFoundationCollections_IVectorViewProtocol<T>: WindowsFoundationCollections_IIterableProtocol {
     associatedtype T
 
-    var size: UInt32 { get throws }
+    var size: Swift.UInt32 { get throws }
 
-    func getAt(_ index: UInt32) throws -> T
-    func indexOf(_ value: T, _ index: inout UInt32) throws -> Bool
-    func getMany(_ startIndex: UInt32, _ items: [T]) throws -> UInt32
+    func getAt(_ index: Swift.UInt32) throws -> T
+    func indexOf(_ value: T, _ index: inout Swift.UInt32) throws -> Swift.Bool
+    func getMany(_ startIndex: Swift.UInt32, _ items: [T]) throws -> Swift.UInt32
 }
 
 public typealias WindowsFoundationCollections_IVectorView<T> = any WindowsFoundationCollections_IVectorViewProtocol<T>
@@ -125,21 +125,21 @@ public typealias WindowsFoundationCollections_IVectorView<T> = any WindowsFounda
 public protocol WindowsFoundationCollections_IVectorProtocol<T>: WindowsFoundationCollections_IIterableProtocol {
     associatedtype T
 
-    var size: UInt32 { get throws }
+    var size: Swift.UInt32 { get throws }
 
-    func getAt(_ index: UInt32) throws -> T
+    func getAt(_ index: Swift.UInt32) throws -> T
     func getView() throws -> WindowsFoundationCollections_IVectorView<T>?
-    func indexOf(_ value: T, _ index: inout UInt32) throws -> Bool
-    func setAt(_ index: UInt32, _ value: T) throws
-    func insertAt(_ index: UInt32, _ value: T) throws
-    func removeAt(_ index: UInt32) throws
+    func indexOf(_ value: T, _ index: inout Swift.UInt32) throws -> Swift.Bool
+    func setAt(_ index: Swift.UInt32, _ value: T) throws
+    func insertAt(_ index: Swift.UInt32, _ value: T) throws
+    func removeAt(_ index: Swift.UInt32) throws
     func append(_ value: T) throws
     func removeAtEnd() throws
     func clear() throws
-    func getMany(_ startIndex: UInt32, _ items: [T]) throws -> UInt32
+    func getMany(_ startIndex: Swift.UInt32, _ items: [T]) throws -> Swift.UInt32
     func replaceAll(_ items: [T]) throws
 }
 
 public typealias WindowsFoundationCollections_IVector<T> = any WindowsFoundationCollections_IVectorProtocol<T>
-public typealias WindowsFoundationCollections_MapChangedEventHandler<K, V> = (WindowsFoundationCollections_IObservableMap<K, V>?, WindowsFoundationCollections_IMapChangedEventArgs<K>?) throws -> Void
-public typealias WindowsFoundationCollections_VectorChangedEventHandler<T> = (WindowsFoundationCollections_IObservableVector<T>?, WindowsFoundationCollections_IVectorChangedEventArgs?) throws -> Void
+public typealias WindowsFoundationCollections_MapChangedEventHandler<K, V> = (WindowsFoundationCollections_IObservableMap<K, V>?, WindowsFoundationCollections_IMapChangedEventArgs<K>?) throws -> Swift.Void
+public typealias WindowsFoundationCollections_VectorChangedEventHandler<T> = (WindowsFoundationCollections_IObservableVector<T>?, WindowsFoundationCollections_IVectorChangedEventArgs?) throws -> Swift.Void

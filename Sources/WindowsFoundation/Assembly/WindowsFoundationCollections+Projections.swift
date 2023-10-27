@@ -9,28 +9,28 @@ extension WindowsFoundationCollections_CollectionChange: WindowsRuntime.EnumProj
     public typealias CEnum = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CCollectionChange
 }
 
-public enum WindowsFoundationCollections_IIterableProjection<T> {
+public enum WindowsFoundationCollections_IIterableProjection {
 }
 
-public enum WindowsFoundationCollections_IIteratorProjection<T> {
+public enum WindowsFoundationCollections_IIteratorProjection {
 }
 
-public enum WindowsFoundationCollections_IKeyValuePairProjection<K, V> {
+public enum WindowsFoundationCollections_IKeyValuePairProjection {
 }
 
-public enum WindowsFoundationCollections_IMapChangedEventArgsProjection<K> {
+public enum WindowsFoundationCollections_IMapChangedEventArgsProjection {
 }
 
-public enum WindowsFoundationCollections_IMapViewProjection<K, V> {
+public enum WindowsFoundationCollections_IMapViewProjection {
 }
 
-public enum WindowsFoundationCollections_IMapProjection<K, V> {
+public enum WindowsFoundationCollections_IMapProjection {
 }
 
-public enum WindowsFoundationCollections_IObservableMapProjection<K, V> {
+public enum WindowsFoundationCollections_IObservableMapProjection {
 }
 
-public enum WindowsFoundationCollections_IObservableVectorProjection<T> {
+public enum WindowsFoundationCollections_IObservableVectorProjection {
 }
 
 public final class WindowsFoundationCollections_IPropertySetProjection: WinRTProjectionBase<WindowsFoundationCollections_IPropertySetProjection>, WinRTProjection, WindowsFoundationCollections_IPropertySetProtocol {
@@ -41,9 +41,9 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.IPropertySet"
 
-    public typealias K = String
+    public typealias K = Swift.String
     public typealias V = WindowsRuntime.IInspectable?
-    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
+    public typealias T = WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?
 
     // Windows.Foundation.Collections.IPropertySet
     // Windows.Foundation.Collections.IObservableMap`2<String, Object>
@@ -64,7 +64,7 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
         _imap = try _queryInterfacePointer(IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)).cast(to: __FIMap_2_HSTRING_IInspectable.self)
     }
 
-    public var size: UInt32 {
+    public var size: Swift.UInt32 {
         get throws {
             try _initIMap()
             var _result: UINT32 = 0
@@ -73,7 +73,7 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
         }
     }
 
-    public func lookup(_ key: String) throws -> WindowsRuntime.IInspectable? {
+    public func lookup(_ key: Swift.String) throws -> WindowsRuntime.IInspectable? {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -82,7 +82,7 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
-    public func hasKey(_ key: String) throws -> Bool {
+    public func hasKey(_ key: Swift.String) throws -> Swift.Bool {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -91,14 +91,14 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
         return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func getView() throws -> WindowsFoundationCollections_IMapView<String, WindowsRuntime.IInspectable?>? {
+    public func getView() throws -> WindowsFoundationCollections_IMapView<Swift.String, WindowsRuntime.IInspectable?>? {
         try _initIMap()
         var _result: UnsafeMutablePointer<__FIMapView_2_HSTRING_IInspectable>? = nil
         try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.GetView(_imap, &_result))
-        return WindowsFoundationCollections_IMapViewProjection<String, WindowsRuntime.IInspectable?>.Projection.toSwift(consuming: _result)
+        return WindowsFoundationCollections_IMapViewProjection.String_Object.toSwift(consuming: _result)
     }
 
-    public func insert(_ key: String, _ value: WindowsRuntime.IInspectable?) throws -> Bool {
+    public func insert(_ key: Swift.String, _ value: WindowsRuntime.IInspectable?) throws -> Swift.Bool {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -109,7 +109,7 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
         return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func remove(_ key: String) throws {
+    public func remove(_ key: Swift.String) throws {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -130,11 +130,11 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
         _iiterable = try _queryInterfacePointer(IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
     }
 
-    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>? {
+    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?>? {
         try _initIIterable()
         var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
         try HResult.throwIfFailed(_iiterable.pointee.lpVtbl.pointee.First(_iiterable, &_result))
-        return WindowsFoundationCollections_IIteratorProjection<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>.Projection.toSwift(consuming: _result)
+        return WindowsFoundationCollections_IIteratorProjection.IKeyValuePair_String_Object.toSwift(consuming: _result)
     }
 
     deinit {
@@ -162,7 +162,7 @@ public final class WindowsFoundationCollections_IVectorChangedEventArgsProjectio
         }
     }
 
-    public var index: UInt32 {
+    public var index: Swift.UInt32 {
         get throws {
             var _result: UINT32 = 0
             try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Index(comPointer, &_result))
@@ -171,13 +171,13 @@ public final class WindowsFoundationCollections_IVectorChangedEventArgsProjectio
     }
 }
 
-public enum WindowsFoundationCollections_IVectorViewProjection<T> {
+public enum WindowsFoundationCollections_IVectorViewProjection {
 }
 
-public enum WindowsFoundationCollections_IVectorProjection<T> {
+public enum WindowsFoundationCollections_IVectorProjection {
 }
 
-public enum WindowsFoundationCollections_MapChangedEventHandlerProjection<K, V> {
+public enum WindowsFoundationCollections_MapChangedEventHandlerProjection {
 }
 
 public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase<WindowsFoundationCollections_PropertySet>, WinRTProjection, WindowsFoundationCollections_IPropertySetProtocol, WindowsFoundationCollections_IObservableMapProtocol, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol {
@@ -188,9 +188,9 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.PropertySet"
 
-    public typealias K = String
+    public typealias K = Swift.String
     public typealias V = WindowsRuntime.IInspectable?
-    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
+    public typealias T = WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?
 
     // Windows.Foundation.Collections.IPropertySet
     // Windows.Foundation.Collections.IObservableMap`2<String, Object>
@@ -211,7 +211,7 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
         _imap = try _queryInterfacePointer(IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)).cast(to: __FIMap_2_HSTRING_IInspectable.self)
     }
 
-    public var size: UInt32 {
+    public var size: Swift.UInt32 {
         get throws {
             try _initIMap()
             var _result: UINT32 = 0
@@ -220,7 +220,7 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
         }
     }
 
-    public func lookup(_ key: String) throws -> WindowsRuntime.IInspectable? {
+    public func lookup(_ key: Swift.String) throws -> WindowsRuntime.IInspectable? {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -229,7 +229,7 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
-    public func hasKey(_ key: String) throws -> Bool {
+    public func hasKey(_ key: Swift.String) throws -> Swift.Bool {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -238,14 +238,14 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
         return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func getView() throws -> WindowsFoundationCollections_IMapView<String, WindowsRuntime.IInspectable?>? {
+    public func getView() throws -> WindowsFoundationCollections_IMapView<Swift.String, WindowsRuntime.IInspectable?>? {
         try _initIMap()
         var _result: UnsafeMutablePointer<__FIMapView_2_HSTRING_IInspectable>? = nil
         try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.GetView(_imap, &_result))
-        return WindowsFoundationCollections_IMapViewProjection<String, WindowsRuntime.IInspectable?>.Projection.toSwift(consuming: _result)
+        return WindowsFoundationCollections_IMapViewProjection.String_Object.toSwift(consuming: _result)
     }
 
-    public func insert(_ key: String, _ value: WindowsRuntime.IInspectable?) throws -> Bool {
+    public func insert(_ key: Swift.String, _ value: WindowsRuntime.IInspectable?) throws -> Swift.Bool {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -256,7 +256,7 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
         return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func remove(_ key: String) throws {
+    public func remove(_ key: Swift.String) throws {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -277,17 +277,33 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
         _iiterable = try _queryInterfacePointer(IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
     }
 
-    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>? {
+    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?>? {
         try _initIIterable()
         var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
         try HResult.throwIfFailed(_iiterable.pointee.lpVtbl.pointee.First(_iiterable, &_result))
-        return WindowsFoundationCollections_IIteratorProjection<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>.Projection.toSwift(consuming: _result)
+        return WindowsFoundationCollections_IIteratorProjection.IKeyValuePair_String_Object.toSwift(consuming: _result)
     }
 
     deinit {
         if let _iobservableMap { IUnknownPointer.release(_iobservableMap) }
         if let _imap { IUnknownPointer.release(_imap) }
         if let _iiterable { IUnknownPointer.release(_iiterable) }
+    }
+
+    // IActivationFactory
+
+    private static var _iactivationFactory: UnsafeMutablePointer<IActivationFactory>! = nil
+
+    private static func _initIActivationFactory() throws {
+        guard _iactivationFactory == nil else { return }
+        _iactivationFactory = try WindowsRuntime.ActivationFactory.getPointer(activatableId: "Windows.Foundation.Collections.PropertySet", iid: IID(0x00000035, 0x0000, 0x0000, 0xC000, 0x000000000046))
+    }
+
+    public init() throws {
+        try Self._initIActivationFactory()
+        var inspectable: UnsafeMutablePointer<CWindowsFoundation.IInspectable>? = nil
+        defer { IUnknownPointer.release(inspectable) }
+        try HResult.throwIfFailed(Self._iactivationFactory.pointee.lpVtbl.pointee.ActivateInstance(Self._iactivationFactory, &inspectable))
     }
 }
 
@@ -299,13 +315,13 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
     public static let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
     public static let runtimeClassName = "Windows.Foundation.Collections.StringMap"
 
-    public typealias K = String
-    public typealias V = String
-    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, String>?
+    public typealias K = Swift.String
+    public typealias V = Swift.String
+    public typealias T = WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>?
 
     // Windows.Foundation.Collections.IMap`2<String, String>
 
-    public var size: UInt32 {
+    public var size: Swift.UInt32 {
         get throws {
             var _result: UINT32 = 0
             try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Size(comPointer, &_result))
@@ -313,7 +329,7 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
         }
     }
 
-    public func lookup(_ key: String) throws -> String {
+    public func lookup(_ key: Swift.String) throws -> Swift.String {
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
         var _result: HSTRING? = nil
@@ -321,7 +337,7 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
         return HStringProjection.toSwift(consuming: _result)
     }
 
-    public func hasKey(_ key: String) throws -> Bool {
+    public func hasKey(_ key: Swift.String) throws -> Swift.Bool {
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
         var _result: boolean = 0
@@ -329,13 +345,13 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
         return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func getView() throws -> WindowsFoundationCollections_IMapView<String, String>? {
+    public func getView() throws -> WindowsFoundationCollections_IMapView<Swift.String, Swift.String>? {
         var _result: UnsafeMutablePointer<__FIMapView_2_HSTRING_HSTRING>? = nil
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetView(comPointer, &_result))
-        return WindowsFoundationCollections_IMapViewProjection<String, String>.Projection.toSwift(consuming: _result)
+        return WindowsFoundationCollections_IMapViewProjection.String_String.toSwift(consuming: _result)
     }
 
-    public func insert(_ key: String, _ value: String) throws -> Bool {
+    public func insert(_ key: Swift.String, _ value: Swift.String) throws -> Swift.Bool {
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
         let value = try HStringProjection.toABI(value)
@@ -345,7 +361,7 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
         return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func remove(_ key: String) throws {
+    public func remove(_ key: Swift.String) throws {
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Remove(comPointer, key))
@@ -364,11 +380,11 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
         _iiterable = try _queryInterfacePointer(IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING.self)
     }
 
-    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<String, String>?>? {
+    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>?>? {
         try _initIIterable()
         var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_HSTRING>? = nil
         try HResult.throwIfFailed(_iiterable.pointee.lpVtbl.pointee.First(_iiterable, &_result))
-        return WindowsFoundationCollections_IIteratorProjection<WindowsFoundationCollections_IKeyValuePair<String, String>?>.Projection.toSwift(consuming: _result)
+        return WindowsFoundationCollections_IIteratorProjection.IKeyValuePair_String_String.toSwift(consuming: _result)
     }
 
     // Windows.Foundation.Collections.IObservableMap`2<String, String>
@@ -384,6 +400,22 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
         if let _iiterable { IUnknownPointer.release(_iiterable) }
         if let _iobservableMap { IUnknownPointer.release(_iobservableMap) }
     }
+
+    // IActivationFactory
+
+    private static var _iactivationFactory: UnsafeMutablePointer<IActivationFactory>! = nil
+
+    private static func _initIActivationFactory() throws {
+        guard _iactivationFactory == nil else { return }
+        _iactivationFactory = try WindowsRuntime.ActivationFactory.getPointer(activatableId: "Windows.Foundation.Collections.StringMap", iid: IID(0x00000035, 0x0000, 0x0000, 0xC000, 0x000000000046))
+    }
+
+    public init() throws {
+        try Self._initIActivationFactory()
+        var inspectable: UnsafeMutablePointer<CWindowsFoundation.IInspectable>? = nil
+        defer { IUnknownPointer.release(inspectable) }
+        try HResult.throwIfFailed(Self._iactivationFactory.pointee.lpVtbl.pointee.ActivateInstance(Self._iactivationFactory, &inspectable))
+    }
 }
 
 public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<WindowsFoundationCollections_ValueSet>, WinRTProjection, WindowsFoundationCollections_IPropertySetProtocol, WindowsFoundationCollections_IObservableMapProtocol, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol {
@@ -394,9 +426,9 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.ValueSet"
 
-    public typealias K = String
+    public typealias K = Swift.String
     public typealias V = WindowsRuntime.IInspectable?
-    public typealias T = WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?
+    public typealias T = WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?
 
     // Windows.Foundation.Collections.IPropertySet
     // Windows.Foundation.Collections.IObservableMap`2<String, Object>
@@ -417,7 +449,7 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         _imap = try _queryInterfacePointer(IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)).cast(to: __FIMap_2_HSTRING_IInspectable.self)
     }
 
-    public var size: UInt32 {
+    public var size: Swift.UInt32 {
         get throws {
             try _initIMap()
             var _result: UINT32 = 0
@@ -426,7 +458,7 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         }
     }
 
-    public func lookup(_ key: String) throws -> WindowsRuntime.IInspectable? {
+    public func lookup(_ key: Swift.String) throws -> WindowsRuntime.IInspectable? {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -435,7 +467,7 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
-    public func hasKey(_ key: String) throws -> Bool {
+    public func hasKey(_ key: Swift.String) throws -> Swift.Bool {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -444,14 +476,14 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func getView() throws -> WindowsFoundationCollections_IMapView<String, WindowsRuntime.IInspectable?>? {
+    public func getView() throws -> WindowsFoundationCollections_IMapView<Swift.String, WindowsRuntime.IInspectable?>? {
         try _initIMap()
         var _result: UnsafeMutablePointer<__FIMapView_2_HSTRING_IInspectable>? = nil
         try HResult.throwIfFailed(_imap.pointee.lpVtbl.pointee.GetView(_imap, &_result))
-        return WindowsFoundationCollections_IMapViewProjection<String, WindowsRuntime.IInspectable?>.Projection.toSwift(consuming: _result)
+        return WindowsFoundationCollections_IMapViewProjection.String_Object.toSwift(consuming: _result)
     }
 
-    public func insert(_ key: String, _ value: WindowsRuntime.IInspectable?) throws -> Bool {
+    public func insert(_ key: Swift.String, _ value: WindowsRuntime.IInspectable?) throws -> Swift.Bool {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -462,7 +494,7 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         return COM.BooleanProjection.toSwift(consuming: _result)
     }
 
-    public func remove(_ key: String) throws {
+    public func remove(_ key: Swift.String) throws {
         try _initIMap()
         let key = try HStringProjection.toABI(key)
         defer { HStringProjection.release(key) }
@@ -483,11 +515,11 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         _iiterable = try _queryInterfacePointer(IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
     }
 
-    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>? {
+    public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?>? {
         try _initIIterable()
         var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
         try HResult.throwIfFailed(_iiterable.pointee.lpVtbl.pointee.First(_iiterable, &_result))
-        return WindowsFoundationCollections_IIteratorProjection<WindowsFoundationCollections_IKeyValuePair<String, WindowsRuntime.IInspectable?>?>.Projection.toSwift(consuming: _result)
+        return WindowsFoundationCollections_IIteratorProjection.IKeyValuePair_String_Object.toSwift(consuming: _result)
     }
 
     deinit {
@@ -495,7 +527,23 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
         if let _imap { IUnknownPointer.release(_imap) }
         if let _iiterable { IUnknownPointer.release(_iiterable) }
     }
+
+    // IActivationFactory
+
+    private static var _iactivationFactory: UnsafeMutablePointer<IActivationFactory>! = nil
+
+    private static func _initIActivationFactory() throws {
+        guard _iactivationFactory == nil else { return }
+        _iactivationFactory = try WindowsRuntime.ActivationFactory.getPointer(activatableId: "Windows.Foundation.Collections.ValueSet", iid: IID(0x00000035, 0x0000, 0x0000, 0xC000, 0x000000000046))
+    }
+
+    public init() throws {
+        try Self._initIActivationFactory()
+        var inspectable: UnsafeMutablePointer<CWindowsFoundation.IInspectable>? = nil
+        defer { IUnknownPointer.release(inspectable) }
+        try HResult.throwIfFailed(Self._iactivationFactory.pointee.lpVtbl.pointee.ActivateInstance(Self._iactivationFactory, &inspectable))
+    }
 }
 
-public enum WindowsFoundationCollections_VectorChangedEventHandlerProjection<T> {
+public enum WindowsFoundationCollections_VectorChangedEventHandlerProjection {
 }
