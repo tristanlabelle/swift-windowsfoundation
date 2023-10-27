@@ -5,6 +5,29 @@ import CWindowsFoundation
 import WindowsRuntime
 import struct Foundation.UUID
 
+public final class WindowsFoundation_AsyncActionCompletedHandlerProjection: WinRTDelegateProjectionBase<WindowsFoundation_AsyncActionCompletedHandlerProjection>, COMTwoWayProjection {
+    public typealias SwiftObject = WindowsFoundation_AsyncActionCompletedHandler
+    public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIAsyncActionCompletedHandler
+    public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIAsyncActionCompletedHandlerVtbl
+
+    public static let iid = IID(0xA4ED5C81, 0x76C9, 0x40BD, 0x8BE6, 0xB1D90FB20AE7)
+
+    public override var swiftObject: SwiftObject {
+        invoke
+    }
+
+    public func invoke(_ asyncInfo: WindowsFoundation_IAsyncAction?, _ asyncStatus: WindowsFoundation_AsyncStatus) throws {
+        let asyncInfo = try WindowsFoundation_IAsyncActionProjection.toABI(asyncInfo)
+        defer { WindowsFoundation_IAsyncActionProjection.release(asyncInfo) }
+        let asyncStatus = WindowsFoundation_AsyncStatus.toABI(asyncStatus)
+        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Invoke(comPointer, asyncInfo, asyncStatus))
+    }
+
+    public static var virtualTablePointer: COMVirtualTablePointer {
+        fatalError("Not implemented: \(#function)")
+    }
+}
+
 public enum WindowsFoundation_AsyncActionProgressHandlerProjection<TProgress> {
 }
 
@@ -71,6 +94,26 @@ public final class WindowsFoundation_Deferral: WinRTProjectionBase<WindowsFounda
 
     deinit {
         if let _iclosable { IUnknownPointer.release(_iclosable) }
+    }
+}
+
+public final class WindowsFoundation_DeferralCompletedHandlerProjection: WinRTDelegateProjectionBase<WindowsFoundation_DeferralCompletedHandlerProjection>, COMTwoWayProjection {
+    public typealias SwiftObject = WindowsFoundation_DeferralCompletedHandler
+    public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIDeferralCompletedHandler
+    public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIDeferralCompletedHandlerVtbl
+
+    public static let iid = IID(0xED32A372, 0xF3C8, 0x4FAA, 0x9CFB, 0x470148DA3888)
+
+    public override var swiftObject: SwiftObject {
+        invoke
+    }
+
+    public func invoke() throws {
+        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Invoke(comPointer))
+    }
+
+    public static var virtualTablePointer: COMVirtualTablePointer {
+        fatalError("Not implemented: \(#function)")
     }
 }
 
