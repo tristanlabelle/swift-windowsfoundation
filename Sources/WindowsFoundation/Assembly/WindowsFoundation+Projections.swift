@@ -82,18 +82,23 @@ public final class WindowsFoundation_Deferral: WinRTProjectionBase<WindowsFounda
 
     private var _iclosable: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable>! = nil
 
-    private func _initIClosable() throws {
-        guard _iclosable == nil else { return }
-        _iclosable = try _queryInterfacePointer(IID(0x30D5A829, 0x7FA4, 0x4026, 0x83BB, 0xD75BAE4EA99E)).cast(to: __x_ABI_CWindows_CFoundation_CIClosable.self)
+    private func _getIClosable() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable> {
+        let iid = IID(0x30D5A829, 0x7FA4, 0x4026, 0x83BB, 0xD75BAE4EA99E)
+        _iclosable = try _queryInterfacePointer(iid).cast(to: __x_ABI_CWindows_CFoundation_CIClosable.self)
+        return _iclosable
     }
 
     public func close() throws {
-        try _initIClosable()
-        try HResult.throwIfFailed(_iclosable.pointee.lpVtbl.pointee.Close(_iclosable))
+        let _this = try _getIClosable()
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.Close(_this))
     }
 
     deinit {
         if let _iclosable { IUnknownPointer.release(_iclosable) }
+    }
+
+    public required init(transferringRef comPointer: COMPointer) {
+        super.init(transferringRef: comPointer)
     }
 }
 
@@ -148,46 +153,47 @@ public final class WindowsFoundation_IAsyncActionProjection: WinRTProjectionBase
 
     private var _iasyncInfo: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo>! = nil
 
-    private func _initIAsyncInfo() throws {
-        guard _iasyncInfo == nil else { return }
-        _iasyncInfo = try _queryInterfacePointer(IID(0x00000036, 0x0000, 0x0000, 0xC000, 0x000000000046)).cast(to: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self)
+    private func _getIAsyncInfo() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo> {
+        let iid = IID(0x00000036, 0x0000, 0x0000, 0xC000, 0x000000000046)
+        _iasyncInfo = try _queryInterfacePointer(iid).cast(to: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self)
+        return _iasyncInfo
     }
 
     public var errorCode: COM.HResult {
         get throws {
-            try _initIAsyncInfo()
+            let _this = try _getIAsyncInfo()
             var _result: HRESULT = S_OK
-            try HResult.throwIfFailed(_iasyncInfo.pointee.lpVtbl.pointee.get_ErrorCode(_iasyncInfo, &_result))
+            try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.get_ErrorCode(_this, &_result))
             return COM.HResultProjection.toSwift(consuming: _result)
         }
     }
 
     public var id: Swift.UInt32 {
         get throws {
-            try _initIAsyncInfo()
+            let _this = try _getIAsyncInfo()
             var _result: UINT32 = 0
-            try HResult.throwIfFailed(_iasyncInfo.pointee.lpVtbl.pointee.get_Id(_iasyncInfo, &_result))
+            try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.get_Id(_this, &_result))
             return _result
         }
     }
 
     public var status: WindowsFoundation_AsyncStatus {
         get throws {
-            try _initIAsyncInfo()
+            let _this = try _getIAsyncInfo()
             var _result: __x_ABI_CWindows_CFoundation_CAsyncStatus = WindowsFoundation_AsyncStatus.abiDefaultValue
-            try HResult.throwIfFailed(_iasyncInfo.pointee.lpVtbl.pointee.get_Status(_iasyncInfo, &_result))
+            try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.get_Status(_this, &_result))
             return WindowsFoundation_AsyncStatus.toSwift(consuming: _result)
         }
     }
 
     public func cancel() throws {
-        try _initIAsyncInfo()
-        try HResult.throwIfFailed(_iasyncInfo.pointee.lpVtbl.pointee.Cancel(_iasyncInfo))
+        let _this = try _getIAsyncInfo()
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.Cancel(_this))
     }
 
     public func close() throws {
-        try _initIAsyncInfo()
-        try HResult.throwIfFailed(_iasyncInfo.pointee.lpVtbl.pointee.Close(_iasyncInfo))
+        let _this = try _getIAsyncInfo()
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.Close(_this))
     }
 
     deinit {
@@ -280,14 +286,15 @@ internal final class WindowsFoundation_IDeferralProjection: WinRTProjectionBase<
 
     private var _iclosable: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable>! = nil
 
-    private func _initIClosable() throws {
-        guard _iclosable == nil else { return }
-        _iclosable = try _queryInterfacePointer(IID(0x30D5A829, 0x7FA4, 0x4026, 0x83BB, 0xD75BAE4EA99E)).cast(to: __x_ABI_CWindows_CFoundation_CIClosable.self)
+    private func _getIClosable() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable> {
+        let iid = IID(0x30D5A829, 0x7FA4, 0x4026, 0x83BB, 0xD75BAE4EA99E)
+        _iclosable = try _queryInterfacePointer(iid).cast(to: __x_ABI_CWindows_CFoundation_CIClosable.self)
+        return _iclosable
     }
 
     public func close() throws {
-        try _initIClosable()
-        try HResult.throwIfFailed(_iclosable.pointee.lpVtbl.pointee.Close(_iclosable))
+        let _this = try _getIClosable()
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.Close(_this))
     }
 
     deinit {
@@ -550,261 +557,259 @@ extension WindowsFoundation_PropertyType: WindowsRuntime.EnumProjection {
     public typealias CEnum = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CPropertyType
 }
 
-public final class WindowsFoundation_PropertyValue {
-    private init() {
-    }
-
+public enum WindowsFoundation_PropertyValue {
     private static var _ipropertyValueStatics: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIPropertyValueStatics>! = nil
 
-    private static func _initIPropertyValueStatics() throws {
-        guard _ipropertyValueStatics == nil else { return }
-        _ipropertyValueStatics = try WindowsRuntime.ActivationFactory.getPointer(activatableId: "Windows.Foundation.PropertyValue", iid: IID(0x629BDBC8, 0xD932, 0x4FF4, 0x96B9, 0x8D96C5C1E858))
+    private static func _getIPropertyValueStatics() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIPropertyValueStatics> {
+        let iid = IID(0x629BDBC8, 0xD932, 0x4FF4, 0x96B9, 0x8D96C5C1E858)
+        _ipropertyValueStatics = try _ipropertyValueStatics ?? WindowsRuntime.getActivationFactoryPointer(activatableId: "Windows.Foundation.PropertyValue", iid: iid)
+        return _ipropertyValueStatics
     }
 
     public static func createEmpty() throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateEmpty(_ipropertyValueStatics, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateEmpty(_this, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createUInt8(_ value: Swift.UInt8) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateUInt8(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateUInt8(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createInt16(_ value: Swift.Int16) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateInt16(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateInt16(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createUInt16(_ value: Swift.UInt16) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateUInt16(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateUInt16(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createInt32(_ value: Swift.Int32) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateInt32(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateInt32(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createUInt32(_ value: Swift.UInt32) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateUInt32(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateUInt32(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createInt64(_ value: Swift.Int64) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateInt64(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateInt64(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createUInt64(_ value: Swift.UInt64) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateUInt64(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateUInt64(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createSingle(_ value: Swift.Float) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateSingle(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateSingle(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createDouble(_ value: Swift.Double) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateDouble(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateDouble(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createChar16(_ value: COM.WideChar) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         let value = COM.WideChar.toABI(value)
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateChar16(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateChar16(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createBoolean(_ value: Swift.Bool) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         let value = COM.BooleanProjection.toABI(value)
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateBoolean(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateBoolean(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createString(_ value: Swift.String) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         let value = try HStringProjection.toABI(value)
         defer { HStringProjection.release(value) }
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateString(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateString(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createInspectable(_ value: WindowsRuntime.IInspectable?) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         let value = try IInspectableProjection.toABI(value)
         defer { IInspectableProjection.release(value) }
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateInspectable(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateInspectable(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createGuid(_ value: Foundation.UUID) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         let value = COM.GUIDProjection.toABI(value)
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateGuid(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateGuid(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createDateTime(_ value: WindowsFoundation_DateTime) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         let value = WindowsFoundation_DateTime.toABI(value)
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateDateTime(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateDateTime(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createTimeSpan(_ value: WindowsFoundation_TimeSpan) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         let value = WindowsFoundation_TimeSpan.toABI(value)
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateTimeSpan(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateTimeSpan(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createPoint(_ value: WindowsFoundation_Point) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         let value = WindowsFoundation_Point.toABI(value)
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreatePoint(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreatePoint(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createSize(_ value: WindowsFoundation_Size) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         let value = WindowsFoundation_Size.toABI(value)
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateSize(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateSize(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createRect(_ value: WindowsFoundation_Rect) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         let value = WindowsFoundation_Rect.toABI(value)
         var _result: IInspectableProjection.COMPointer? = nil
-        try HResult.throwIfFailed(_ipropertyValueStatics.pointee.lpVtbl.pointee.CreateRect(_ipropertyValueStatics, value, &_result))
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.CreateRect(_this, value, &_result))
         return IInspectableProjection.toSwift(consuming: _result)
     }
 
     public static func createUInt8Array(_ value: [Swift.UInt8]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createInt16Array(_ value: [Swift.Int16]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createUInt16Array(_ value: [Swift.UInt16]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createInt32Array(_ value: [Swift.Int32]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createUInt32Array(_ value: [Swift.UInt32]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createInt64Array(_ value: [Swift.Int64]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createUInt64Array(_ value: [Swift.UInt64]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createSingleArray(_ value: [Swift.Float]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createDoubleArray(_ value: [Swift.Double]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createChar16Array(_ value: [COM.WideChar]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createBooleanArray(_ value: [Swift.Bool]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createStringArray(_ value: [Swift.String]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createInspectableArray(_ value: [WindowsRuntime.IInspectable?]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createGuidArray(_ value: [Foundation.UUID]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createDateTimeArray(_ value: [WindowsFoundation_DateTime]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createTimeSpanArray(_ value: [WindowsFoundation_TimeSpan]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createPointArray(_ value: [WindowsFoundation_Point]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createSizeArray(_ value: [WindowsFoundation_Size]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 
     public static func createRectArray(_ value: [WindowsFoundation_Rect]) throws -> WindowsRuntime.IInspectable? {
-        try _initIPropertyValueStatics()
+        let _this = try _getIPropertyValueStatics()
         fatalError("Not implemented: \(#function)")
     }
 }
