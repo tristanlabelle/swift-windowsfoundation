@@ -4,8 +4,13 @@ import PackageDescription
 
 let package = Package(
     name: "WindowsFoundation",
+    products: [
+        .library(
+            name: "WindowsFoundation",
+            targets: ["WindowsFoundation", "WindowsFoundationCollections"])
+    ],
     dependencies: [
-        .package(path: "D:\\swift-winrt")
+        .package(path: "../swift-winrt")
     ],
     targets: [
         .target(
