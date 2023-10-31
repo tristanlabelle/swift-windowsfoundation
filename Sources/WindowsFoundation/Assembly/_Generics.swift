@@ -11,11 +11,10 @@ extension WindowsFoundationCollections_IIterableProjection {
         public typealias COMInterface = CWindowsFoundation.__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable
         public typealias COMVirtualTable = CWindowsFoundation.__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl
 
-        public static let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+        public static let iid = IID(0xFE2F3D47, 0x5D47, 0x5499, 0x8374, 0x430C7CDA0204)
         public static let runtimeClassName = "Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>"
 
         // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-
         public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?>? {
             var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
             try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.First(comPointer, &_result))
@@ -30,11 +29,10 @@ extension WindowsFoundationCollections_IIterableProjection {
         public typealias COMInterface = CWindowsFoundation.__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING
         public typealias COMVirtualTable = CWindowsFoundation.__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRINGVtbl
 
-        public static let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+        public static let iid = IID(0xE9BDAAF0, 0xCBF6, 0x5C72, 0xBE90, 0x29CBF3A1319B)
         public static let runtimeClassName = "Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>"
 
         // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
-
         public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>?>? {
             var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_HSTRING>? = nil
             try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.First(comPointer, &_result))
@@ -49,11 +47,10 @@ extension WindowsFoundationCollections_IIteratorProjection {
         public typealias COMInterface = CWindowsFoundation.__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable
         public typealias COMVirtualTable = CWindowsFoundation.__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl
 
-        public static let iid = IID(0x6A79E863, 0x4300, 0x459A, 0x9966, 0xCBB660963EE1)
+        public static let iid = IID(0x5DB5FA32, 0x707C, 0x5849, 0xA06B, 0x91C8EB9D10E8)
         public static let runtimeClassName = "Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>"
 
         // Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-
         public var current: WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>? {
             get throws {
                 var _result: UnsafeMutablePointer<__FIKeyValuePair_2_HSTRING_IInspectable>? = nil
@@ -92,11 +89,10 @@ extension WindowsFoundationCollections_IIteratorProjection {
         public typealias COMInterface = CWindowsFoundation.__FIIterator_1___FIKeyValuePair_2_HSTRING_HSTRING
         public typealias COMVirtualTable = CWindowsFoundation.__FIIterator_1___FIKeyValuePair_2_HSTRING_HSTRINGVtbl
 
-        public static let iid = IID(0x6A79E863, 0x4300, 0x459A, 0x9966, 0xCBB660963EE1)
+        public static let iid = IID(0x05EB86F1, 0x7140, 0x5517, 0xB88D, 0xCBAEBE57E6B1)
         public static let runtimeClassName = "Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>"
 
         // Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
-
         public var current: WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>? {
             get throws {
                 var _result: UnsafeMutablePointer<__FIKeyValuePair_2_HSTRING_HSTRING>? = nil
@@ -135,11 +131,10 @@ extension WindowsFoundationCollections_IKeyValuePairProjection {
         public typealias COMInterface = CWindowsFoundation.__FIKeyValuePair_2_HSTRING_IInspectable
         public typealias COMVirtualTable = CWindowsFoundation.__FIKeyValuePair_2_HSTRING_IInspectableVtbl
 
-        public static let iid = IID(0x02B51929, 0xC1C4, 0x4A7E, 0x8940, 0x0312B5C18500)
+        public static let iid = IID(0x09335560, 0x6C6B, 0x5A26, 0x9348, 0x97B781132B20)
         public static let runtimeClassName = "Windows.Foundation.Collections.IKeyValuePair`2<String, Object>"
 
         // Windows.Foundation.Collections.IKeyValuePair`2<String, Object>
-
         public var key: Swift.String {
             get throws {
                 var _result: CWindowsFoundation.HSTRING? = nil
@@ -164,11 +159,10 @@ extension WindowsFoundationCollections_IKeyValuePairProjection {
         public typealias COMInterface = CWindowsFoundation.__FIKeyValuePair_2_HSTRING_HSTRING
         public typealias COMVirtualTable = CWindowsFoundation.__FIKeyValuePair_2_HSTRING_HSTRINGVtbl
 
-        public static let iid = IID(0x02B51929, 0xC1C4, 0x4A7E, 0x8940, 0x0312B5C18500)
+        public static let iid = IID(0x60310303, 0x49C5, 0x52E6, 0xABC6, 0xA9B36ECCC716)
         public static let runtimeClassName = "Windows.Foundation.Collections.IKeyValuePair`2<String, String>"
 
         // Windows.Foundation.Collections.IKeyValuePair`2<String, String>
-
         public var key: Swift.String {
             get throws {
                 var _result: CWindowsFoundation.HSTRING? = nil
@@ -193,11 +187,10 @@ extension WindowsFoundationCollections_IMapChangedEventArgsProjection {
         public typealias COMInterface = CWindowsFoundation.__FIMapChangedEventArgs_1_HSTRING
         public typealias COMVirtualTable = CWindowsFoundation.__FIMapChangedEventArgs_1_HSTRINGVtbl
 
-        public static let iid = IID(0x9939F4DF, 0x050A, 0x4C0F, 0xAA60, 0x77075F9C4777)
+        public static let iid = IID(0x60141EFB, 0xF2F9, 0x5377, 0x96FD, 0xF8C60D9558B5)
         public static let runtimeClassName = "Windows.Foundation.Collections.IMapChangedEventArgs`1<String>"
 
         // Windows.Foundation.Collections.IMapChangedEventArgs`1<String>
-
         public var collectionChange: WindowsFoundationCollections_CollectionChange {
             get throws {
                 var _result: __x_ABI_CWindows_CFoundation_CCollections_CCollectionChange = WindowsFoundationCollections_CollectionChange.abiDefaultValue
@@ -222,13 +215,12 @@ extension WindowsFoundationCollections_IMapViewProjection {
         public typealias COMInterface = CWindowsFoundation.__FIMapView_2_HSTRING_IInspectable
         public typealias COMVirtualTable = CWindowsFoundation.__FIMapView_2_HSTRING_IInspectableVtbl
 
-        public static let iid = IID(0xE480CE40, 0xA338, 0x4ADA, 0xADCF, 0x272272E48CB9)
+        public static let iid = IID(0xBB78502A, 0xF79D, 0x54FA, 0x92C9, 0x90C5039FDF7E)
         public static let runtimeClassName = "Windows.Foundation.Collections.IMapView`2<String, Object>"
 
         public typealias T = WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?
 
         // Windows.Foundation.Collections.IMapView`2<String, Object>
-
         public var size: Swift.UInt32 {
             get throws {
                 var _result: UINT32 = 0
@@ -264,11 +256,10 @@ extension WindowsFoundationCollections_IMapViewProjection {
         }
 
         // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-
         private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
 
         private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable> {
-            let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+            let iid = IID(0xFE2F3D47, 0x5D47, 0x5499, 0x8374, 0x430C7CDA0204)
             _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
             return _iiterable
         }
@@ -292,13 +283,12 @@ extension WindowsFoundationCollections_IMapViewProjection {
         public typealias COMInterface = CWindowsFoundation.__FIMapView_2_HSTRING_HSTRING
         public typealias COMVirtualTable = CWindowsFoundation.__FIMapView_2_HSTRING_HSTRINGVtbl
 
-        public static let iid = IID(0xE480CE40, 0xA338, 0x4ADA, 0xADCF, 0x272272E48CB9)
+        public static let iid = IID(0xAC7F26F2, 0xFEB7, 0x5B2A, 0x8AC4, 0x345BC62CAEDE)
         public static let runtimeClassName = "Windows.Foundation.Collections.IMapView`2<String, String>"
 
         public typealias T = WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>?
 
         // Windows.Foundation.Collections.IMapView`2<String, String>
-
         public var size: Swift.UInt32 {
             get throws {
                 var _result: UINT32 = 0
@@ -334,11 +324,10 @@ extension WindowsFoundationCollections_IMapViewProjection {
         }
 
         // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
-
         private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING>! = nil
 
         private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING> {
-            let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+            let iid = IID(0xE9BDAAF0, 0xCBF6, 0x5C72, 0xBE90, 0x29CBF3A1319B)
             _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING.self)
             return _iiterable
         }
@@ -362,13 +351,12 @@ extension WindowsFoundationCollections_IMapProjection {
         public typealias COMInterface = CWindowsFoundation.__FIMap_2_HSTRING_IInspectable
         public typealias COMVirtualTable = CWindowsFoundation.__FIMap_2_HSTRING_IInspectableVtbl
 
-        public static let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
+        public static let iid = IID(0x1B0D3570, 0x0877, 0x5EC2, 0x8A2C, 0x3B9539506ACA)
         public static let runtimeClassName = "Windows.Foundation.Collections.IMap`2<String, Object>"
 
         public typealias T = WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?
 
         // Windows.Foundation.Collections.IMap`2<String, Object>
-
         public var size: Swift.UInt32 {
             get throws {
                 var _result: UINT32 = 0
@@ -420,11 +408,10 @@ extension WindowsFoundationCollections_IMapProjection {
         }
 
         // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-
         private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
 
         private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable> {
-            let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+            let iid = IID(0xFE2F3D47, 0x5D47, 0x5499, 0x8374, 0x430C7CDA0204)
             _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
             return _iiterable
         }
@@ -448,13 +435,12 @@ extension WindowsFoundationCollections_IMapProjection {
         public typealias COMInterface = CWindowsFoundation.__FIMap_2_HSTRING_HSTRING
         public typealias COMVirtualTable = CWindowsFoundation.__FIMap_2_HSTRING_HSTRINGVtbl
 
-        public static let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
+        public static let iid = IID(0xF6D1F700, 0x49C2, 0x52AE, 0x8154, 0x826F9908773C)
         public static let runtimeClassName = "Windows.Foundation.Collections.IMap`2<String, String>"
 
         public typealias T = WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>?
 
         // Windows.Foundation.Collections.IMap`2<String, String>
-
         public var size: Swift.UInt32 {
             get throws {
                 var _result: UINT32 = 0
@@ -506,11 +492,10 @@ extension WindowsFoundationCollections_IMapProjection {
         }
 
         // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
-
         private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING>! = nil
 
         private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING> {
-            let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+            let iid = IID(0xE9BDAAF0, 0xCBF6, 0x5C72, 0xBE90, 0x29CBF3A1319B)
             _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING.self)
             return _iiterable
         }
@@ -534,7 +519,7 @@ extension WindowsFoundationCollections_IObservableMapProjection {
         public typealias COMInterface = CWindowsFoundation.__FIObservableMap_2_HSTRING_IInspectable
         public typealias COMVirtualTable = CWindowsFoundation.__FIObservableMap_2_HSTRING_IInspectableVtbl
 
-        public static let iid = IID(0x65DF2BF5, 0xBF39, 0x41B5, 0xAEBC, 0x5A9D865E472B)
+        public static let iid = IID(0x236AAC9D, 0xFB12, 0x5C4D, 0xA41C, 0x9E445FB4D7EC)
         public static let runtimeClassName = "Windows.Foundation.Collections.IObservableMap`2<String, Object>"
 
         public typealias K = Swift.String
@@ -542,11 +527,10 @@ extension WindowsFoundationCollections_IObservableMapProjection {
 
         // Windows.Foundation.Collections.IObservableMap`2<String, Object>
         // Windows.Foundation.Collections.IMap`2<String, Object>
-
         private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable>! = nil
 
         private func _getIMap() throws -> UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable> {
-            let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
+            let iid = IID(0x1B0D3570, 0x0877, 0x5EC2, 0x8A2C, 0x3B9539506ACA)
             _imap = try _queryInterfacePointer(iid).cast(to: __FIMap_2_HSTRING_IInspectable.self)
             return _imap
         }
@@ -609,11 +593,10 @@ extension WindowsFoundationCollections_IObservableMapProjection {
         }
 
         // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-
         private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
 
         private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable> {
-            let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+            let iid = IID(0xFE2F3D47, 0x5D47, 0x5499, 0x8374, 0x430C7CDA0204)
             _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
             return _iiterable
         }
@@ -638,7 +621,7 @@ extension WindowsFoundationCollections_IObservableMapProjection {
         public typealias COMInterface = CWindowsFoundation.__FIObservableMap_2_HSTRING_HSTRING
         public typealias COMVirtualTable = CWindowsFoundation.__FIObservableMap_2_HSTRING_HSTRINGVtbl
 
-        public static let iid = IID(0x65DF2BF5, 0xBF39, 0x41B5, 0xAEBC, 0x5A9D865E472B)
+        public static let iid = IID(0x1E036276, 0x2F60, 0x55F6, 0xB7F3, 0xF86079E6900B)
         public static let runtimeClassName = "Windows.Foundation.Collections.IObservableMap`2<String, String>"
 
         public typealias K = Swift.String
@@ -646,6 +629,13 @@ extension WindowsFoundationCollections_IObservableMapProjection {
 
         // Windows.Foundation.Collections.IObservableMap`2<String, String>
         // Windows.Foundation.Collections.IMap`2<String, String>
+        private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_HSTRING>! = nil
+
+        private func _getIMap() throws -> UnsafeMutablePointer<__FIMap_2_HSTRING_HSTRING> {
+            let iid = IID(0xF6D1F700, 0x49C2, 0x52AE, 0x8154, 0x826F9908773C)
+            _imap = try _queryInterfacePointer(iid).cast(to: __FIMap_2_HSTRING_HSTRING.self)
+            return _imap
+        }
 
         private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_HSTRING>! = nil
 
@@ -713,11 +703,10 @@ extension WindowsFoundationCollections_IObservableMapProjection {
         }
 
         // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
-
         private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING>! = nil
 
         private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING> {
-            let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+            let iid = IID(0xE9BDAAF0, 0xCBF6, 0x5C72, 0xBE90, 0x29CBF3A1319B)
             _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING.self)
             return _iiterable
         }
@@ -742,7 +731,7 @@ extension WindowsFoundationCollections_MapChangedEventHandlerProjection {
         public typealias COMInterface = CWindowsFoundation.__FMapChangedEventHandler_2_HSTRING_IInspectable
         public typealias COMVirtualTable = CWindowsFoundation.__FMapChangedEventHandler_2_HSTRING_IInspectableVtbl
 
-        public static let iid = IID(0x179517F3, 0x94EE, 0x41F8, 0xBDDC, 0x768A895544F3)
+        public static let iid = IID(0x24F981E5, 0xDDCA, 0x538D, 0xAADA, 0xA59906084CF1)
 
         public override var swiftObject: SwiftObject {
             invoke
@@ -768,7 +757,7 @@ extension WindowsFoundationCollections_MapChangedEventHandlerProjection {
         public typealias COMInterface = CWindowsFoundation.__FMapChangedEventHandler_2_HSTRING_HSTRING
         public typealias COMVirtualTable = CWindowsFoundation.__FMapChangedEventHandler_2_HSTRING_HSTRINGVtbl
 
-        public static let iid = IID(0x179517F3, 0x94EE, 0x41F8, 0xBDDC, 0x768A895544F3)
+        public static let iid = IID(0xE2663F37, 0x2E1B, 0x500C, 0xAD68, 0xC3ED7A8F74C8)
 
         public override var swiftObject: SwiftObject {
             invoke

@@ -47,21 +47,19 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
 
     // Windows.Foundation.Collections.IPropertySet
     // Windows.Foundation.Collections.IObservableMap`2<String, Object>
-
     private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable>! = nil
 
     private func _getIObservableMap() throws -> UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable> {
-        let iid = IID(0x65DF2BF5, 0xBF39, 0x41B5, 0xAEBC, 0x5A9D865E472B)
+        let iid = IID(0x236AAC9D, 0xFB12, 0x5C4D, 0xA41C, 0x9E445FB4D7EC)
         _iobservableMap = try _queryInterfacePointer(iid).cast(to: __FIObservableMap_2_HSTRING_IInspectable.self)
         return _iobservableMap
     }
 
     // Windows.Foundation.Collections.IMap`2<String, Object>
-
     private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable>! = nil
 
     private func _getIMap() throws -> UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable> {
-        let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
+        let iid = IID(0x1B0D3570, 0x0877, 0x5EC2, 0x8A2C, 0x3B9539506ACA)
         _imap = try _queryInterfacePointer(iid).cast(to: __FIMap_2_HSTRING_IInspectable.self)
         return _imap
     }
@@ -124,11 +122,10 @@ public final class WindowsFoundationCollections_IPropertySetProjection: WinRTPro
     }
 
     // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-
     private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
 
     private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable> {
-        let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+        let iid = IID(0xFE2F3D47, 0x5D47, 0x5499, 0x8374, 0x430C7CDA0204)
         _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
         return _iiterable
     }
@@ -156,7 +153,6 @@ public final class WindowsFoundationCollections_IVectorChangedEventArgsProjectio
     public static let runtimeClassName = "Windows.Foundation.Collections.IVectorChangedEventArgs"
 
     // Windows.Foundation.Collections.IVectorChangedEventArgs
-
     public var collectionChange: WindowsFoundationCollections_CollectionChange {
         get throws {
             var _result: __x_ABI_CWindows_CFoundation_CCollections_CCollectionChange = WindowsFoundationCollections_CollectionChange.abiDefaultValue
@@ -197,21 +193,19 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
 
     // Windows.Foundation.Collections.IPropertySet
     // Windows.Foundation.Collections.IObservableMap`2<String, Object>
-
     private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable>! = nil
 
     private func _getIObservableMap() throws -> UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable> {
-        let iid = IID(0x65DF2BF5, 0xBF39, 0x41B5, 0xAEBC, 0x5A9D865E472B)
+        let iid = IID(0x236AAC9D, 0xFB12, 0x5C4D, 0xA41C, 0x9E445FB4D7EC)
         _iobservableMap = try _queryInterfacePointer(iid).cast(to: __FIObservableMap_2_HSTRING_IInspectable.self)
         return _iobservableMap
     }
 
     // Windows.Foundation.Collections.IMap`2<String, Object>
-
     private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable>! = nil
 
     private func _getIMap() throws -> UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable> {
-        let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
+        let iid = IID(0x1B0D3570, 0x0877, 0x5EC2, 0x8A2C, 0x3B9539506ACA)
         _imap = try _queryInterfacePointer(iid).cast(to: __FIMap_2_HSTRING_IInspectable.self)
         return _imap
     }
@@ -274,11 +268,10 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
     }
 
     // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-
     private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
 
     private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable> {
-        let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+        let iid = IID(0xFE2F3D47, 0x5D47, 0x5499, 0x8374, 0x430C7CDA0204)
         _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
         return _iiterable
     }
@@ -301,7 +294,6 @@ public final class WindowsFoundationCollections_PropertySet: WinRTProjectionBase
     }
 
     // IActivationFactory
-
     private static var _iactivationFactory: UnsafeMutablePointer<IActivationFactory>! = nil
 
     private static func _getIActivationFactory() throws -> UnsafeMutablePointer<IActivationFactory> {
@@ -331,7 +323,7 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
     public typealias COMInterface = CWindowsFoundation.__FIMap_2_HSTRING_HSTRING
     public typealias COMVirtualTable = CWindowsFoundation.__FIMap_2_HSTRING_HSTRINGVtbl
 
-    public static let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
+    public static let iid = IID(0xF6D1F700, 0x49C2, 0x52AE, 0x8154, 0x826F9908773C)
     public static let runtimeClassName = "Windows.Foundation.Collections.StringMap"
 
     public typealias K = Swift.String
@@ -339,7 +331,6 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
     public typealias T = WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>?
 
     // Windows.Foundation.Collections.IMap`2<String, String>
-
     public var size: Swift.UInt32 {
         get throws {
             var _result: UINT32 = 0
@@ -391,11 +382,10 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
     }
 
     // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
-
     private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING>! = nil
 
     private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING> {
-        let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+        let iid = IID(0xE9BDAAF0, 0xCBF6, 0x5C72, 0xBE90, 0x29CBF3A1319B)
         _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING.self)
         return _iiterable
     }
@@ -408,11 +398,10 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
     }
 
     // Windows.Foundation.Collections.IObservableMap`2<String, String>
-
     private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_HSTRING>! = nil
 
     private func _getIObservableMap() throws -> UnsafeMutablePointer<__FIObservableMap_2_HSTRING_HSTRING> {
-        let iid = IID(0x65DF2BF5, 0xBF39, 0x41B5, 0xAEBC, 0x5A9D865E472B)
+        let iid = IID(0x1E036276, 0x2F60, 0x55F6, 0xB7F3, 0xF86079E6900B)
         _iobservableMap = try _queryInterfacePointer(iid).cast(to: __FIObservableMap_2_HSTRING_HSTRING.self)
         return _iobservableMap
     }
@@ -427,7 +416,6 @@ public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<W
     }
 
     // IActivationFactory
-
     private static var _iactivationFactory: UnsafeMutablePointer<IActivationFactory>! = nil
 
     private static func _getIActivationFactory() throws -> UnsafeMutablePointer<IActivationFactory> {
@@ -466,21 +454,19 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
 
     // Windows.Foundation.Collections.IPropertySet
     // Windows.Foundation.Collections.IObservableMap`2<String, Object>
-
     private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable>! = nil
 
     private func _getIObservableMap() throws -> UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable> {
-        let iid = IID(0x65DF2BF5, 0xBF39, 0x41B5, 0xAEBC, 0x5A9D865E472B)
+        let iid = IID(0x236AAC9D, 0xFB12, 0x5C4D, 0xA41C, 0x9E445FB4D7EC)
         _iobservableMap = try _queryInterfacePointer(iid).cast(to: __FIObservableMap_2_HSTRING_IInspectable.self)
         return _iobservableMap
     }
 
     // Windows.Foundation.Collections.IMap`2<String, Object>
-
     private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable>! = nil
 
     private func _getIMap() throws -> UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable> {
-        let iid = IID(0x3C2925FE, 0x8519, 0x45C1, 0xAA79, 0x197B6718C1C1)
+        let iid = IID(0x1B0D3570, 0x0877, 0x5EC2, 0x8A2C, 0x3B9539506ACA)
         _imap = try _queryInterfacePointer(iid).cast(to: __FIMap_2_HSTRING_IInspectable.self)
         return _imap
     }
@@ -543,11 +529,10 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
     }
 
     // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-
     private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
 
     private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable> {
-        let iid = IID(0xFAA585EA, 0x6214, 0x4217, 0xAFDA, 0x7F46DE5869B3)
+        let iid = IID(0xFE2F3D47, 0x5D47, 0x5499, 0x8374, 0x430C7CDA0204)
         _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
         return _iiterable
     }
@@ -570,7 +555,6 @@ public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<Wi
     }
 
     // IActivationFactory
-
     private static var _iactivationFactory: UnsafeMutablePointer<IActivationFactory>! = nil
 
     private static func _getIActivationFactory() throws -> UnsafeMutablePointer<IActivationFactory> {

@@ -73,13 +73,11 @@ public final class WindowsFoundation_Deferral: WinRTProjectionBase<WindowsFounda
     public static let runtimeClassName = "Windows.Foundation.Deferral"
 
     // Windows.Foundation.IDeferral
-
     public func complete() throws {
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Complete(comPointer))
     }
 
     // Windows.Foundation.IClosable
-
     private var _iclosable: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable>! = nil
 
     private func _getIClosable() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable> {
@@ -134,7 +132,6 @@ public final class WindowsFoundation_IAsyncActionProjection: WinRTProjectionBase
     public static let runtimeClassName = "Windows.Foundation.IAsyncAction"
 
     // Windows.Foundation.IAsyncAction
-
     public var completed: WindowsFoundation_AsyncActionCompletedHandler? {
         get throws {
             fatalError("Not implemented: \(#function)")
@@ -150,7 +147,6 @@ public final class WindowsFoundation_IAsyncActionProjection: WinRTProjectionBase
     }
 
     // Windows.Foundation.IAsyncInfo
-
     private var _iasyncInfo: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo>! = nil
 
     private func _getIAsyncInfo() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo> {
@@ -213,7 +209,6 @@ public final class WindowsFoundation_IAsyncInfoProjection: WinRTProjectionBase<W
     public static let runtimeClassName = "Windows.Foundation.IAsyncInfo"
 
     // Windows.Foundation.IAsyncInfo
-
     public var errorCode: COM.HResult {
         get throws {
             var _result: HRESULT = S_OK
@@ -262,7 +257,6 @@ public final class WindowsFoundation_IClosableProjection: WinRTProjectionBase<Wi
     public static let runtimeClassName = "Windows.Foundation.IClosable"
 
     // Windows.Foundation.IClosable
-
     public func close() throws {
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Close(comPointer))
     }
@@ -277,13 +271,11 @@ internal final class WindowsFoundation_IDeferralProjection: WinRTProjectionBase<
     public static let runtimeClassName = "Windows.Foundation.IDeferral"
 
     // Windows.Foundation.IDeferral
-
     public func complete() throws {
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Complete(comPointer))
     }
 
     // Windows.Foundation.IClosable
-
     private var _iclosable: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable>! = nil
 
     private func _getIClosable() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable> {
@@ -311,7 +303,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
     public static let runtimeClassName = "Windows.Foundation.IPropertyValue"
 
     // Windows.Foundation.IPropertyValue
-
     public var isNumericScalar: Swift.Bool {
         get throws {
             var _result: boolean = 0
@@ -441,7 +432,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.UInt8>>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetUInt8Array(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.UInt8>>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getInt16Array(_ value: inout [Swift.Int16]) throws {
@@ -449,7 +439,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.Int16>>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetInt16Array(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.Int16>>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getUInt16Array(_ value: inout [Swift.UInt16]) throws {
@@ -457,7 +446,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.UInt16>>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetUInt16Array(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.UInt16>>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getInt32Array(_ value: inout [Swift.Int32]) throws {
@@ -465,7 +453,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.Int32>>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetInt32Array(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.Int32>>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getUInt32Array(_ value: inout [Swift.UInt32]) throws {
@@ -473,7 +460,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.UInt32>>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetUInt32Array(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.UInt32>>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getInt64Array(_ value: inout [Swift.Int64]) throws {
@@ -481,7 +467,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.Int64>>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetInt64Array(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.Int64>>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getUInt64Array(_ value: inout [Swift.UInt64]) throws {
@@ -489,7 +474,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.UInt64>>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetUInt64Array(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.UInt64>>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getSingleArray(_ value: inout [Swift.Float]) throws {
@@ -497,7 +481,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.Float>>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetSingleArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.Float>>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getDoubleArray(_ value: inout [Swift.Double]) throws {
@@ -505,7 +488,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.Double>>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetDoubleArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<NumericProjection<Swift.Double>>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getChar16Array(_ value: inout [COM.WideChar]) throws {
@@ -513,7 +495,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<COM.WideChar>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetChar16Array(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<COM.WideChar>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getBooleanArray(_ value: inout [Swift.Bool]) throws {
@@ -521,7 +502,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<COM.BooleanProjection>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetBooleanArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<COM.BooleanProjection>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getStringArray(_ value: inout [Swift.String]) throws {
@@ -529,7 +509,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<WindowsRuntime.HStringProjection>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetStringArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<WindowsRuntime.HStringProjection>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getInspectableArray(_ value: inout [WindowsRuntime.IInspectable?]) throws {
@@ -537,7 +516,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<WindowsRuntime.IInspectableProjection>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetInspectableArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<WindowsRuntime.IInspectableProjection>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getGuidArray(_ value: inout [Foundation.UUID]) throws {
@@ -545,7 +523,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<COM.GUIDProjection>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetGuidArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<COM.GUIDProjection>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getDateTimeArray(_ value: inout [WindowsFoundation_DateTime]) throws {
@@ -553,7 +530,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<WindowsFoundation_DateTime>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetDateTimeArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<WindowsFoundation_DateTime>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getTimeSpanArray(_ value: inout [WindowsFoundation_TimeSpan]) throws {
@@ -561,7 +537,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<WindowsFoundation_TimeSpan>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetTimeSpanArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<WindowsFoundation_TimeSpan>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getPointArray(_ value: inout [WindowsFoundation_Point]) throws {
@@ -569,7 +544,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<WindowsFoundation_Point>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetPointArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<WindowsFoundation_Point>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getSizeArray(_ value: inout [WindowsFoundation_Size]) throws {
@@ -577,7 +551,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<WindowsFoundation_Size>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetSizeArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<WindowsFoundation_Size>.toSwift(consuming: &_value)
-        _value = .null
     }
 
     public func getRectArray(_ value: inout [WindowsFoundation_Rect]) throws {
@@ -585,7 +558,6 @@ public final class WindowsFoundation_IPropertyValueProjection: WinRTProjectionBa
         defer { WindowsRuntime.WinRTArrayProjection<WindowsFoundation_Rect>.release(&_value) }
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetRectArray(comPointer, &_value.count, &_value.elements))
         value = WindowsRuntime.WinRTArrayProjection<WindowsFoundation_Rect>.toSwift(consuming: &_value)
-        _value = .null
     }
 }
 
@@ -604,7 +576,6 @@ public final class WindowsFoundation_IStringableProjection: WinRTProjectionBase<
     public static let runtimeClassName = "Windows.Foundation.IStringable"
 
     // Windows.Foundation.IStringable
-
     public func toString() throws -> Swift.String {
         var _result: CWindowsFoundation.HSTRING? = nil
         try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.ToString(comPointer, &_result))
