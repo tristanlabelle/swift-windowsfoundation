@@ -14,16 +14,31 @@ public protocol WindowsFoundation_IClosableProtocol: IInspectableProtocol {
 /// Defines a method to release allocated resources.
 public typealias WindowsFoundation_IClosable = any WindowsFoundation_IClosableProtocol
 
-public final class WindowsFoundation_IClosableProjection: WinRTProjectionBase<WindowsFoundation_IClosableProjection>, WinRTProjection, WindowsFoundation_IClosableProtocol {
+public enum WindowsFoundation_IClosableProjection: WinRTTwoWayProjection {
     public typealias SwiftObject = WindowsFoundation_IClosable
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIClosable
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIClosableVtbl
 
     public static let iid = IID(0x30D5A829, 0x7FA4, 0x4026, 0x83BB, 0xD75BAE4EA99E)
+
+    public static var virtualTablePointer: COMVirtualTablePointer {
+        fatalError("Not implemented: \(#function)")
+    }
+
     public static let runtimeClassName = "Windows.Foundation.IClosable"
 
-    // Windows.Foundation.IClosable
-    public func close() throws {
-        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Close(comPointer))
+    public static func toSwift(transferringRef comPointer: COMPointer) -> SwiftObject {
+        toSwift(transferringRef: comPointer, implementation: Implementation.self)
+    }
+
+    public static func toCOM(_ object: SwiftObject) throws -> COMPointer {
+        try toCOM(object, implementation: Implementation.self)
+    }
+
+    private final class Implementation: WinRTImport<WindowsFoundation_IClosableProjection>, WindowsFoundation_IClosableProtocol {
+        // Windows.Foundation.IClosable
+        public func close() throws {
+            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Close(comPointer))
+        }
     }
 }

@@ -5,13 +5,21 @@ import CWindowsFoundation
 import WindowsRuntime
 import struct Foundation.UUID
 
-public final class WindowsFoundationCollections_ValueSet: WinRTProjectionBase<WindowsFoundationCollections_ValueSet>, WinRTProjection, WindowsFoundationCollections_IPropertySetProtocol, WindowsFoundationCollections_IObservableMapProtocol, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol {
+public final class WindowsFoundationCollections_ValueSet: WinRTImport<WindowsFoundationCollections_ValueSet>, WinRTProjection, WindowsFoundationCollections_IPropertySetProtocol, WindowsFoundationCollections_IObservableMapProtocol, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol {
     public typealias SwiftObject = WindowsFoundationCollections_ValueSet
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySet
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIPropertySetVtbl
 
     public static let iid = IID(0x8A43ED9F, 0xF4E6, 0x4421, 0xACF9, 0x1DAB2986820C)
     public static let runtimeClassName = "Windows.Foundation.Collections.ValueSet"
+
+    public static func toSwift(transferringRef comPointer: COMPointer) -> SwiftObject {
+        toSwift(transferringRef: comPointer, implementation: Self.self)
+    }
+
+    public static func toCOM(_ object: SwiftObject) throws -> COMPointer {
+        try toCOM(object, implementation: Self.self)
+    }
 
     public typealias K = Swift.String
     public typealias V = WindowsRuntime.IInspectable?

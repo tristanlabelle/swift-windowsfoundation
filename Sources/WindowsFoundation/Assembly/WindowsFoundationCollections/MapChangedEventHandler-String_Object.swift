@@ -6,27 +6,34 @@ import WindowsRuntime
 import struct Foundation.UUID
 
 extension WindowsFoundationCollections_MapChangedEventHandlerProjection {
-    public final class String_Object: WinRTDelegateProjectionBase<String_Object>, COMTwoWayProjection {
+    public enum String_Object: COMTwoWayProjection {
         public typealias SwiftObject = WindowsFoundationCollections_MapChangedEventHandler<Swift.String, WindowsRuntime.IInspectable?>
         public typealias COMInterface = CWindowsFoundation.__FMapChangedEventHandler_2_HSTRING_IInspectable
         public typealias COMVirtualTable = CWindowsFoundation.__FMapChangedEventHandler_2_HSTRING_IInspectableVtbl
 
         public static let iid = IID(0x24F981E5, 0xDDCA, 0x538D, 0xAADA, 0xA59906084CF1)
 
-        public override var swiftObject: SwiftObject {
-            invoke
-        }
-
-        public func invoke(_ sender: WindowsFoundationCollections_IObservableMap<Swift.String, WindowsRuntime.IInspectable?>?, _ event: WindowsFoundationCollections_IMapChangedEventArgs<Swift.String>?) throws {
-            var sender = try WindowsFoundationCollections_IObservableMapProjection.String_Object.toABI(sender)
-            defer { WindowsFoundationCollections_IObservableMapProjection.String_Object.release(&sender) }
-            var event = try WindowsFoundationCollections_IMapChangedEventArgsProjection.String.toABI(event)
-            defer { WindowsFoundationCollections_IMapChangedEventArgsProjection.String.release(&event) }
-            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Invoke(comPointer, sender, event))
-        }
-
         public static var virtualTablePointer: COMVirtualTablePointer {
             fatalError("Not implemented: \(#function)")
+        }
+
+        public static func toSwift(transferringRef comPointer: COMPointer) -> SwiftObject {
+            toSwift(transferringRef: comPointer, implementation: Implementation.self)
+        }
+
+        public static func toCOM(_ object: @escaping SwiftObject) throws -> COMPointer {
+            let comExport = COMExport<Self>(implementation: object, queriableInterfaces: [ .init(Self.self) ])
+            return IUnknownPointer.addingRef(comExport.pointer)
+        }
+
+        private final class Implementation: COMImport<String_Object> {
+            public func invoke(_ sender: WindowsFoundationCollections_IObservableMap<Swift.String, WindowsRuntime.IInspectable?>?, _ event: WindowsFoundationCollections_IMapChangedEventArgs<Swift.String>?) throws {
+                var sender = try WindowsFoundationCollections_IObservableMapProjection.String_Object.toABI(sender)
+                defer { WindowsFoundationCollections_IObservableMapProjection.String_Object.release(&sender) }
+                var event = try WindowsFoundationCollections_IMapChangedEventArgsProjection.String.toABI(event)
+                defer { WindowsFoundationCollections_IMapChangedEventArgsProjection.String.release(&event) }
+                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.Invoke(comPointer, sender, event))
+            }
         }
     }
 }

@@ -6,43 +6,58 @@ import WindowsRuntime
 import struct Foundation.UUID
 
 extension WindowsFoundationCollections_IIteratorProjection {
-    public final class IKeyValuePair_String_String: WinRTProjectionBase<IKeyValuePair_String_String>, WinRTProjection, WindowsFoundationCollections_IIteratorProtocol {
+    public enum IKeyValuePair_String_String: WinRTTwoWayProjection {
         public typealias SwiftObject = WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>?>
         public typealias COMInterface = CWindowsFoundation.__FIIterator_1___FIKeyValuePair_2_HSTRING_HSTRING
         public typealias COMVirtualTable = CWindowsFoundation.__FIIterator_1___FIKeyValuePair_2_HSTRING_HSTRINGVtbl
 
         public static let iid = IID(0x05EB86F1, 0x7140, 0x5517, 0xB88D, 0xCBAEBE57E6B1)
+
+        public static var virtualTablePointer: COMVirtualTablePointer {
+            fatalError("Not implemented: \(#function)")
+        }
+
         public static let runtimeClassName = "Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>"
 
-        // Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
-        public var current: WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>? {
-            get throws {
-                var _result: UnsafeMutablePointer<__FIKeyValuePair_2_HSTRING_HSTRING>? = nil
-                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Current(comPointer, &_result))
-                return WindowsFoundationCollections_IKeyValuePairProjection.String_String.toSwift(consuming: &_result)
-            }
+        public static func toSwift(transferringRef comPointer: COMPointer) -> SwiftObject {
+            toSwift(transferringRef: comPointer, implementation: Implementation.self)
         }
 
-        public var hasCurrent: Swift.Bool {
-            get throws {
+        public static func toCOM(_ object: SwiftObject) throws -> COMPointer {
+            try toCOM(object, implementation: Implementation.self)
+        }
+
+        private final class Implementation: WinRTImport<IKeyValuePair_String_String>, WindowsFoundationCollections_IIteratorProtocol {
+            // Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
+            public var current: WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>? {
+                get throws {
+                    var _result: UnsafeMutablePointer<__FIKeyValuePair_2_HSTRING_HSTRING>? = nil
+                    try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Current(comPointer, &_result))
+                    return WindowsFoundationCollections_IKeyValuePairProjection.String_String.toSwift(consuming: &_result)
+                }
+            }
+
+            public var hasCurrent: Swift.Bool {
+                get throws {
+                    var _result: boolean = 0
+                    try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_HasCurrent(comPointer, &_result))
+                    return COM.BooleanProjection.toSwift(_result)
+                }
+            }
+
+            public func moveNext() throws -> Swift.Bool {
                 var _result: boolean = 0
-                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_HasCurrent(comPointer, &_result))
+                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.MoveNext(comPointer, &_result))
                 return COM.BooleanProjection.toSwift(_result)
             }
-        }
 
-        public func moveNext() throws -> Swift.Bool {
-            var _result: boolean = 0
-            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.MoveNext(comPointer, &_result))
-            return COM.BooleanProjection.toSwift(_result)
-        }
-
-        public func getMany(_ items: [WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>?]) throws -> Swift.UInt32 {
-            var items: COM.COMArray<UnsafeMutablePointer<__FIKeyValuePair_2_HSTRING_HSTRING>?> = .null
-            defer { WindowsRuntime.WinRTArrayProjection<WindowsFoundationCollections_IKeyValuePairProjection.String_String>.release(&items) }
-            var _result: UINT32 = 0
-            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetMany(comPointer, items.count, items.elements, &_result))
-            return _result
+            public func getMany(_ items: [WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>?]) throws -> Swift.UInt32 {
+                var items: COM.COMArray<UnsafeMutablePointer<__FIKeyValuePair_2_HSTRING_HSTRING>?> = .null
+                defer { WindowsRuntime.WinRTArrayProjection<WindowsFoundationCollections_IKeyValuePairProjection.String_String>.release(&items) }
+                var _result: UINT32 = 0
+                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetMany(comPointer, items.count, items.elements, &_result))
+                return _result
+            }
         }
     }
 }

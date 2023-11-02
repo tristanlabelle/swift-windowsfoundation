@@ -19,76 +19,91 @@ public protocol WindowsFoundation_IAsyncActionProtocol: WindowsFoundation_IAsync
 /// Represents an asynchronous action. This is the return type for many Windows Runtime asynchronous methods that don't have a result object, and don't report ongoing progress.
 public typealias WindowsFoundation_IAsyncAction = any WindowsFoundation_IAsyncActionProtocol
 
-public final class WindowsFoundation_IAsyncActionProjection: WinRTProjectionBase<WindowsFoundation_IAsyncActionProjection>, WinRTProjection, WindowsFoundation_IAsyncActionProtocol {
+public enum WindowsFoundation_IAsyncActionProjection: WinRTTwoWayProjection {
     public typealias SwiftObject = WindowsFoundation_IAsyncAction
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIAsyncAction
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIAsyncActionVtbl
 
     public static let iid = IID(0x5A648006, 0x843A, 0x4DA9, 0x865B, 0x9D26E5DFAD7B)
-    public static let runtimeClassName = "Windows.Foundation.IAsyncAction"
 
-    // Windows.Foundation.IAsyncAction
-    public var completed: WindowsFoundation_AsyncActionCompletedHandler? {
-        get throws {
-            fatalError("Not implemented: \(#function)")
-        }
-    }
-
-    public func completed(_ newValue: WindowsFoundation_AsyncActionCompletedHandler?) throws {
+    public static var virtualTablePointer: COMVirtualTablePointer {
         fatalError("Not implemented: \(#function)")
     }
 
-    public func getResults() throws {
-        try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetResults(comPointer))
+    public static let runtimeClassName = "Windows.Foundation.IAsyncAction"
+
+    public static func toSwift(transferringRef comPointer: COMPointer) -> SwiftObject {
+        toSwift(transferringRef: comPointer, implementation: Implementation.self)
     }
 
-    // Windows.Foundation.IAsyncInfo
-    private var _iasyncInfo: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo>! = nil
-
-    private func _getIAsyncInfo() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo> {
-        let iid = IID(0x00000036, 0x0000, 0x0000, 0xC000, 0x000000000046)
-        _iasyncInfo = try _queryInterfacePointer(iid).cast(to: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self)
-        return _iasyncInfo
+    public static func toCOM(_ object: SwiftObject) throws -> COMPointer {
+        try toCOM(object, implementation: Implementation.self)
     }
 
-    public var errorCode: COM.HResult {
-        get throws {
-            let _this = try _getIAsyncInfo()
-            var _result: HRESULT = S_OK
-            try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.get_ErrorCode(_this, &_result))
-            return COM.HResultProjection.toSwift(_result)
+    private final class Implementation: WinRTImport<WindowsFoundation_IAsyncActionProjection>, WindowsFoundation_IAsyncActionProtocol {
+        // Windows.Foundation.IAsyncAction
+        public var completed: WindowsFoundation_AsyncActionCompletedHandler? {
+            get throws {
+                fatalError("Not implemented: \(#function)")
+            }
         }
-    }
 
-    public var id: Swift.UInt32 {
-        get throws {
-            let _this = try _getIAsyncInfo()
-            var _result: UINT32 = 0
-            try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.get_Id(_this, &_result))
-            return _result
+        public func completed(_ newValue: WindowsFoundation_AsyncActionCompletedHandler?) throws {
+            fatalError("Not implemented: \(#function)")
         }
-    }
 
-    public var status: WindowsFoundation_AsyncStatus {
-        get throws {
-            let _this = try _getIAsyncInfo()
-            var _result: __x_ABI_CWindows_CFoundation_CAsyncStatus = WindowsFoundation_AsyncStatus.abiDefaultValue
-            try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.get_Status(_this, &_result))
-            return WindowsFoundation_AsyncStatus.toSwift(_result)
+        public func getResults() throws {
+            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.GetResults(comPointer))
         }
-    }
 
-    public func cancel() throws {
-        let _this = try _getIAsyncInfo()
-        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.Cancel(_this))
-    }
+        // Windows.Foundation.IAsyncInfo
+        private var _iasyncInfo: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo>! = nil
 
-    public func close() throws {
-        let _this = try _getIAsyncInfo()
-        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.Close(_this))
-    }
+        private func _getIAsyncInfo() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo> {
+            let iid = IID(0x00000036, 0x0000, 0x0000, 0xC000, 0x000000000046)
+            _iasyncInfo = try _queryInterfacePointer(iid).cast(to: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self)
+            return _iasyncInfo
+        }
 
-    deinit {
-        if let _iasyncInfo { IUnknownPointer.release(_iasyncInfo) }
+        public var errorCode: COM.HResult {
+            get throws {
+                let _this = try _getIAsyncInfo()
+                var _result: HRESULT = S_OK
+                try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.get_ErrorCode(_this, &_result))
+                return COM.HResultProjection.toSwift(_result)
+            }
+        }
+
+        public var id: Swift.UInt32 {
+            get throws {
+                let _this = try _getIAsyncInfo()
+                var _result: UINT32 = 0
+                try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.get_Id(_this, &_result))
+                return _result
+            }
+        }
+
+        public var status: WindowsFoundation_AsyncStatus {
+            get throws {
+                let _this = try _getIAsyncInfo()
+                var _result: __x_ABI_CWindows_CFoundation_CAsyncStatus = WindowsFoundation_AsyncStatus.abiDefaultValue
+                try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.get_Status(_this, &_result))
+                return WindowsFoundation_AsyncStatus.toSwift(_result)
+            }
+        }
+
+        public func cancel() throws {
+            let _this = try _getIAsyncInfo()
+            try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.Cancel(_this))
+        }
+
+        public func close() throws {
+            let _this = try _getIAsyncInfo()
+            try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.Close(_this))
+        }
+
+        deinit {
+            if let _iasyncInfo { IUnknownPointer.release(_iasyncInfo) }
+        }
     }
 }

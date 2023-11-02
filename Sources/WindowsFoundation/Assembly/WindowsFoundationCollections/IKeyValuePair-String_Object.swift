@@ -6,28 +6,43 @@ import WindowsRuntime
 import struct Foundation.UUID
 
 extension WindowsFoundationCollections_IKeyValuePairProjection {
-    public final class String_Object: WinRTProjectionBase<String_Object>, WinRTProjection, WindowsFoundationCollections_IKeyValuePairProtocol {
+    public enum String_Object: WinRTTwoWayProjection {
         public typealias SwiftObject = WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>
         public typealias COMInterface = CWindowsFoundation.__FIKeyValuePair_2_HSTRING_IInspectable
         public typealias COMVirtualTable = CWindowsFoundation.__FIKeyValuePair_2_HSTRING_IInspectableVtbl
 
         public static let iid = IID(0x09335560, 0x6C6B, 0x5A26, 0x9348, 0x97B781132B20)
-        public static let runtimeClassName = "Windows.Foundation.Collections.IKeyValuePair`2<String, Object>"
 
-        // Windows.Foundation.Collections.IKeyValuePair`2<String, Object>
-        public var key: Swift.String {
-            get throws {
-                var _result: CWindowsFoundation.HSTRING? = nil
-                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Key(comPointer, &_result))
-                return WindowsRuntime.HStringProjection.toSwift(consuming: &_result)
-            }
+        public static var virtualTablePointer: COMVirtualTablePointer {
+            fatalError("Not implemented: \(#function)")
         }
 
-        public var value: WindowsRuntime.IInspectable? {
-            get throws {
-                var _result: IInspectableProjection.COMPointer? = nil
-                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Value(comPointer, &_result))
-                return WindowsRuntime.IInspectableProjection.toSwift(consuming: &_result)
+        public static let runtimeClassName = "Windows.Foundation.Collections.IKeyValuePair`2<String, Object>"
+
+        public static func toSwift(transferringRef comPointer: COMPointer) -> SwiftObject {
+            toSwift(transferringRef: comPointer, implementation: Implementation.self)
+        }
+
+        public static func toCOM(_ object: SwiftObject) throws -> COMPointer {
+            try toCOM(object, implementation: Implementation.self)
+        }
+
+        private final class Implementation: WinRTImport<String_Object>, WindowsFoundationCollections_IKeyValuePairProtocol {
+            // Windows.Foundation.Collections.IKeyValuePair`2<String, Object>
+            public var key: Swift.String {
+                get throws {
+                    var _result: CWindowsFoundation.HSTRING? = nil
+                    try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Key(comPointer, &_result))
+                    return WindowsRuntime.HStringProjection.toSwift(consuming: &_result)
+                }
+            }
+
+            public var value: WindowsRuntime.IInspectable? {
+                get throws {
+                    var _result: IInspectableProjection.COMPointer? = nil
+                    try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Value(comPointer, &_result))
+                    return WindowsRuntime.IInspectableProjection.toSwift(consuming: &_result)
+                }
             }
         }
     }

@@ -34,8 +34,8 @@ public protocol WindowsFoundationCollections_IVectorProtocol<T>: WindowsFoundati
     func setAt(_ index: Swift.UInt32, _ value: T) throws
 
     /// Inserts an item at a specified index in the vector.
-    /// - Parameter index: The zero-based index.
     /// - Parameter value: The item to insert.
+    /// - Parameter index: The zero-based index.
     func insertAt(_ index: Swift.UInt32, _ value: T) throws
 
     /// Removes the item at the specified index in the vector.

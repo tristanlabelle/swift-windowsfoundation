@@ -6,19 +6,34 @@ import WindowsRuntime
 import struct Foundation.UUID
 
 extension WindowsFoundationCollections_IIterableProjection {
-    public final class IKeyValuePair_String_Object: WinRTProjectionBase<IKeyValuePair_String_Object>, WinRTProjection, WindowsFoundationCollections_IIterableProtocol {
+    public enum IKeyValuePair_String_Object: WinRTTwoWayProjection {
         public typealias SwiftObject = WindowsFoundationCollections_IIterable<WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?>
         public typealias COMInterface = CWindowsFoundation.__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable
         public typealias COMVirtualTable = CWindowsFoundation.__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectableVtbl
 
         public static let iid = IID(0xFE2F3D47, 0x5D47, 0x5499, 0x8374, 0x430C7CDA0204)
+
+        public static var virtualTablePointer: COMVirtualTablePointer {
+            fatalError("Not implemented: \(#function)")
+        }
+
         public static let runtimeClassName = "Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>"
 
-        // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-        public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?>? {
-            var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
-            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.First(comPointer, &_result))
-            return WindowsFoundationCollections_IIteratorProjection.IKeyValuePair_String_Object.toSwift(consuming: &_result)
+        public static func toSwift(transferringRef comPointer: COMPointer) -> SwiftObject {
+            toSwift(transferringRef: comPointer, implementation: Implementation.self)
+        }
+
+        public static func toCOM(_ object: SwiftObject) throws -> COMPointer {
+            try toCOM(object, implementation: Implementation.self)
+        }
+
+        private final class Implementation: WinRTImport<IKeyValuePair_String_Object>, WindowsFoundationCollections_IIterableProtocol {
+            // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
+            public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?>? {
+                var _result: UnsafeMutablePointer<__FIIterator_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
+                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.First(comPointer, &_result))
+                return WindowsFoundationCollections_IIteratorProjection.IKeyValuePair_String_Object.toSwift(consuming: &_result)
+            }
         }
     }
 }

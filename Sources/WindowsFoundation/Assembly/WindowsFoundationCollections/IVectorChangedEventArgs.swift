@@ -19,28 +19,43 @@ public protocol WindowsFoundationCollections_IVectorChangedEventArgsProtocol: II
 /// Provides data for the changed event of a vector.
 public typealias WindowsFoundationCollections_IVectorChangedEventArgs = any WindowsFoundationCollections_IVectorChangedEventArgsProtocol
 
-public final class WindowsFoundationCollections_IVectorChangedEventArgsProjection: WinRTProjectionBase<WindowsFoundationCollections_IVectorChangedEventArgsProjection>, WinRTProjection, WindowsFoundationCollections_IVectorChangedEventArgsProtocol {
+public enum WindowsFoundationCollections_IVectorChangedEventArgsProjection: WinRTTwoWayProjection {
     public typealias SwiftObject = WindowsFoundationCollections_IVectorChangedEventArgs
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgs
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CCollections_CIVectorChangedEventArgsVtbl
 
     public static let iid = IID(0x575933DF, 0x34FE, 0x4480, 0xAF15, 0x07691F3D5D9B)
-    public static let runtimeClassName = "Windows.Foundation.Collections.IVectorChangedEventArgs"
 
-    // Windows.Foundation.Collections.IVectorChangedEventArgs
-    public var collectionChange: WindowsFoundationCollections_CollectionChange {
-        get throws {
-            var _result: __x_ABI_CWindows_CFoundation_CCollections_CCollectionChange = WindowsFoundationCollections_CollectionChange.abiDefaultValue
-            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_CollectionChange(comPointer, &_result))
-            return WindowsFoundationCollections_CollectionChange.toSwift(_result)
-        }
+    public static var virtualTablePointer: COMVirtualTablePointer {
+        fatalError("Not implemented: \(#function)")
     }
 
-    public var index: Swift.UInt32 {
-        get throws {
-            var _result: UINT32 = 0
-            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Index(comPointer, &_result))
-            return _result
+    public static let runtimeClassName = "Windows.Foundation.Collections.IVectorChangedEventArgs"
+
+    public static func toSwift(transferringRef comPointer: COMPointer) -> SwiftObject {
+        toSwift(transferringRef: comPointer, implementation: Implementation.self)
+    }
+
+    public static func toCOM(_ object: SwiftObject) throws -> COMPointer {
+        try toCOM(object, implementation: Implementation.self)
+    }
+
+    private final class Implementation: WinRTImport<WindowsFoundationCollections_IVectorChangedEventArgsProjection>, WindowsFoundationCollections_IVectorChangedEventArgsProtocol {
+        // Windows.Foundation.Collections.IVectorChangedEventArgs
+        public var collectionChange: WindowsFoundationCollections_CollectionChange {
+            get throws {
+                var _result: __x_ABI_CWindows_CFoundation_CCollections_CCollectionChange = WindowsFoundationCollections_CollectionChange.abiDefaultValue
+                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_CollectionChange(comPointer, &_result))
+                return WindowsFoundationCollections_CollectionChange.toSwift(_result)
+            }
+        }
+
+        public var index: Swift.UInt32 {
+            get throws {
+                var _result: UINT32 = 0
+                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Index(comPointer, &_result))
+                return _result
+            }
         }
     }
 }

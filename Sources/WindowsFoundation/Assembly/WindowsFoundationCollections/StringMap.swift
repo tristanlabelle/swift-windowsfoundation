@@ -5,13 +5,21 @@ import CWindowsFoundation
 import WindowsRuntime
 import struct Foundation.UUID
 
-public final class WindowsFoundationCollections_StringMap: WinRTProjectionBase<WindowsFoundationCollections_StringMap>, WinRTProjection, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol, WindowsFoundationCollections_IObservableMapProtocol {
+public final class WindowsFoundationCollections_StringMap: WinRTImport<WindowsFoundationCollections_StringMap>, WinRTProjection, WindowsFoundationCollections_IMapProtocol, WindowsFoundationCollections_IIterableProtocol, WindowsFoundationCollections_IObservableMapProtocol {
     public typealias SwiftObject = WindowsFoundationCollections_StringMap
     public typealias COMInterface = CWindowsFoundation.__FIMap_2_HSTRING_HSTRING
     public typealias COMVirtualTable = CWindowsFoundation.__FIMap_2_HSTRING_HSTRINGVtbl
 
     public static let iid = IID(0xF6D1F700, 0x49C2, 0x52AE, 0x8154, 0x826F9908773C)
     public static let runtimeClassName = "Windows.Foundation.Collections.StringMap"
+
+    public static func toSwift(transferringRef comPointer: COMPointer) -> SwiftObject {
+        toSwift(transferringRef: comPointer, implementation: Self.self)
+    }
+
+    public static func toCOM(_ object: SwiftObject) throws -> COMPointer {
+        try toCOM(object, implementation: Self.self)
+    }
 
     public typealias K = Swift.String
     public typealias V = Swift.String

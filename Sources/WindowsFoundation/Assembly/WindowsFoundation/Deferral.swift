@@ -5,13 +5,21 @@ import CWindowsFoundation
 import WindowsRuntime
 import struct Foundation.UUID
 
-public final class WindowsFoundation_Deferral: WinRTProjectionBase<WindowsFoundation_Deferral>, WinRTProjection, WindowsFoundation_IDeferralProtocol, WindowsFoundation_IClosableProtocol {
+public final class WindowsFoundation_Deferral: WinRTImport<WindowsFoundation_Deferral>, WinRTProjection, WindowsFoundation_IDeferralProtocol, WindowsFoundation_IClosableProtocol {
     public typealias SwiftObject = WindowsFoundation_Deferral
     public typealias COMInterface = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIDeferral
     public typealias COMVirtualTable = CWindowsFoundation.__x_ABI_CWindows_CFoundation_CIDeferralVtbl
 
     public static let iid = IID(0xD6269732, 0x3B7F, 0x46A7, 0xB40B, 0x4FDCA2A2C693)
     public static let runtimeClassName = "Windows.Foundation.Deferral"
+
+    public static func toSwift(transferringRef comPointer: COMPointer) -> SwiftObject {
+        toSwift(transferringRef: comPointer, implementation: Self.self)
+    }
+
+    public static func toCOM(_ object: SwiftObject) throws -> COMPointer {
+        try toCOM(object, implementation: Self.self)
+    }
 
     // Windows.Foundation.IDeferral
     public func complete() throws {
