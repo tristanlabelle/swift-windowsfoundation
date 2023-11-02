@@ -29,8 +29,8 @@ public protocol WindowsFoundationCollections_IMapProtocol<K, V>: WindowsFoundati
     func getView() throws -> WindowsFoundationCollections_IMapView<K, V>?
 
     /// Inserts or replaces an item in the map.
-    /// - Parameter value: The item to insert.
     /// - Parameter key: The key associated with the item to insert.
+    /// - Parameter value: The item to insert.
     /// - Returns: True if an item with the specified key is an existing item that was replaced; otherwise, false.
     func insert(_ key: K, _ value: V) throws -> Swift.Bool
 

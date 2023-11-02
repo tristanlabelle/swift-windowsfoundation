@@ -12,12 +12,12 @@ public protocol WindowsFoundation_IAsyncActionWithProgressProtocol<TProgress>: W
     /// Gets or sets the callback method that receives progress notification.
     /// - Returns: A reference to the callback method that handles progress notifications. Implement the AsyncActionProgressHandler(TProgress) delegate to define your callback. *TProgress* defines the progress unit type, which varies by method implementation.
     var progress: WindowsFoundation_AsyncActionProgressHandler<TProgress>? { get throws }
-    func progress(_ newValue: WindowsFoundation_AsyncActionProgressHandler<TProgress>?) throws
+    func progress(_ handler: WindowsFoundation_AsyncActionProgressHandler<TProgress>?) throws
 
     /// Gets or sets the method that handles the action completed notification.
     /// - Returns: The method that handles the notification.
     var completed: WindowsFoundation_AsyncActionWithProgressCompletedHandler<TProgress>? { get throws }
-    func completed(_ newValue: WindowsFoundation_AsyncActionWithProgressCompletedHandler<TProgress>?) throws
+    func completed(_ handler: WindowsFoundation_AsyncActionWithProgressCompletedHandler<TProgress>?) throws
 
     /// Returns the results of the action.
     func getResults() throws

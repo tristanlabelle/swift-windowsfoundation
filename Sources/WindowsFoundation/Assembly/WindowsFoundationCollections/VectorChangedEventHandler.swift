@@ -6,9 +6,9 @@ import WindowsRuntime
 import struct Foundation.UUID
 
 /// Represents the method that handles the changed event of an observable vector.
-/// - Parameter sender: The observable vector that changed.
 /// - Parameter @event: 
       
+/// - Parameter sender: The observable vector that changed.
 public typealias WindowsFoundationCollections_VectorChangedEventHandler<T> = (WindowsFoundationCollections_IObservableVector<T>?, WindowsFoundationCollections_IVectorChangedEventArgs?) throws -> Swift.Void
 
 public enum WindowsFoundationCollections_VectorChangedEventHandlerProjection {

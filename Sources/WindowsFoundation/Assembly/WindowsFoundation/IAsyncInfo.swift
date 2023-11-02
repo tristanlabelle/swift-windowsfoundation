@@ -54,7 +54,7 @@ public enum WindowsFoundation_IAsyncInfoProjection: WinRTTwoWayProjection {
         // Windows.Foundation.IAsyncInfo
         public var errorCode: COM.HResult {
             get throws {
-                var _result: HRESULT = S_OK
+                var _result: CWindowsFoundation.HRESULT = S_OK
                 try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_ErrorCode(comPointer, &_result))
                 return COM.HResultProjection.toSwift(_result)
             }

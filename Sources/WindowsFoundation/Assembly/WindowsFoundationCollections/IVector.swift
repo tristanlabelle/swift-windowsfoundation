@@ -23,8 +23,8 @@ public protocol WindowsFoundationCollections_IVectorProtocol<T>: WindowsFoundati
     func getView() throws -> WindowsFoundationCollections_IVectorView<T>?
 
     /// Retrieves the index of a specified item in the vector.
-    /// - Parameter index: If the item is found, this is the zero-based index of the item; otherwise, this parameter is 0.
     /// - Parameter value: The item to find in the vector.
+    /// - Parameter index: If the item is found, this is the zero-based index of the item; otherwise, this parameter is 0.
     /// - Returns: **true** if the item is found; otherwise, **false**.
     func indexOf(_ value: T, _ index: inout Swift.UInt32) throws -> Swift.Bool
 
@@ -34,8 +34,8 @@ public protocol WindowsFoundationCollections_IVectorProtocol<T>: WindowsFoundati
     func setAt(_ index: Swift.UInt32, _ value: T) throws
 
     /// Inserts an item at a specified index in the vector.
-    /// - Parameter value: The item to insert.
     /// - Parameter index: The zero-based index.
+    /// - Parameter value: The item to insert.
     func insertAt(_ index: Swift.UInt32, _ value: T) throws
 
     /// Removes the item at the specified index in the vector.
@@ -53,8 +53,8 @@ public protocol WindowsFoundationCollections_IVectorProtocol<T>: WindowsFoundati
     func clear() throws
 
     /// Gets a collection of items from the vector beginning at the given index.
-    /// - Parameter startIndex: The zero-based index to start at.
     /// - Parameter items: An array to copy the items into.
+    /// - Parameter startIndex: The zero-based index to start at.
     /// - Returns: A status code indicating the result of the operation.
     func getMany(_ startIndex: Swift.UInt32, _ items: [T]) throws -> Swift.UInt32
 

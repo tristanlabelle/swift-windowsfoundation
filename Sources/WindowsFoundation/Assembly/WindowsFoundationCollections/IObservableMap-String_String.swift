@@ -32,6 +32,19 @@ extension WindowsFoundationCollections_IObservableMapProjection {
             public typealias V = Swift.String
 
             // Windows.Foundation.Collections.IObservableMap`2<String, String>
+            public func mapChanged(adding vhnd: WindowsFoundationCollections_MapChangedEventHandler<Swift.String, Swift.String>?) throws -> WindowsRuntime.EventRegistration {
+                var vhnd = try WindowsFoundationCollections_MapChangedEventHandlerProjection.String_String.toABI(vhnd)
+                defer { WindowsFoundationCollections_MapChangedEventHandlerProjection.String_String.release(&vhnd) }
+                var _result: CWindowsFoundation.EventRegistrationToken = CWindowsFoundation.EventRegistrationToken()
+                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.add_MapChanged(comPointer, vhnd, &_result))
+                return WindowsRuntime.EventRegistration(token: WindowsRuntime.EventRegistrationToken.toSwift(_result), remover: mapChanged)
+            }
+
+            public func mapChanged(removing token: WindowsRuntime.EventRegistrationToken) throws {
+                let token = WindowsRuntime.EventRegistrationToken.toABI(token)
+                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.remove_MapChanged(comPointer, token))
+            }
+
             // Windows.Foundation.Collections.IMap`2<String, String>
             private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_HSTRING>! = nil
 

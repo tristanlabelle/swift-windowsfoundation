@@ -9,6 +9,10 @@ import struct Foundation.UUID
 public protocol WindowsFoundationCollections_IObservableMapProtocol<K, V>: WindowsFoundationCollections_IMapProtocol {
     associatedtype K
     associatedtype V
+
+    /// Occurs when the map changes.
+    func mapChanged(adding vhnd: WindowsFoundationCollections_MapChangedEventHandler<K, V>?) throws -> WindowsRuntime.EventRegistration
+    func mapChanged(removing token: WindowsRuntime.EventRegistrationToken) throws
 }
 
 /// Notifies listeners of dynamic changes to a map, such as when items are added or removed.

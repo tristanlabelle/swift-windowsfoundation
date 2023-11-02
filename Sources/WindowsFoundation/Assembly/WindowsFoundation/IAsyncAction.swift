@@ -10,7 +10,7 @@ public protocol WindowsFoundation_IAsyncActionProtocol: WindowsFoundation_IAsync
     /// Gets or sets the method that handles the action completed notification.
     /// - Returns: The method that handles the notification.
     var completed: WindowsFoundation_AsyncActionCompletedHandler? { get throws }
-    func completed(_ newValue: WindowsFoundation_AsyncActionCompletedHandler?) throws
+    func completed(_ handler: WindowsFoundation_AsyncActionCompletedHandler?) throws
 
     /// Returns the results of the action.
     func getResults() throws
@@ -44,12 +44,16 @@ public enum WindowsFoundation_IAsyncActionProjection: WinRTTwoWayProjection {
         // Windows.Foundation.IAsyncAction
         public var completed: WindowsFoundation_AsyncActionCompletedHandler? {
             get throws {
-                fatalError("Not implemented: \(#function)")
+                var _result: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncActionCompletedHandler>? = nil
+                try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.get_Completed(comPointer, &_result))
+                return WindowsFoundation_AsyncActionCompletedHandlerProjection.toSwift(consuming: &_result)
             }
         }
 
-        public func completed(_ newValue: WindowsFoundation_AsyncActionCompletedHandler?) throws {
-            fatalError("Not implemented: \(#function)")
+        public func completed(_ handler: WindowsFoundation_AsyncActionCompletedHandler?) throws {
+            var handler = try WindowsFoundation_AsyncActionCompletedHandlerProjection.toABI(handler)
+            defer { WindowsFoundation_AsyncActionCompletedHandlerProjection.release(&handler) }
+            try HResult.throwIfFailed(comPointer.pointee.lpVtbl.pointee.put_Completed(comPointer, handler))
         }
 
         public func getResults() throws {
@@ -68,7 +72,7 @@ public enum WindowsFoundation_IAsyncActionProjection: WinRTTwoWayProjection {
         public var errorCode: COM.HResult {
             get throws {
                 let _this = try _getIAsyncInfo()
-                var _result: HRESULT = S_OK
+                var _result: CWindowsFoundation.HRESULT = S_OK
                 try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.get_ErrorCode(_this, &_result))
                 return COM.HResultProjection.toSwift(_result)
             }

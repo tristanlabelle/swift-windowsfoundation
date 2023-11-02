@@ -35,6 +35,21 @@ public final class WindowsFoundationCollections_ValueSet: WinRTImport<WindowsFou
         return _iobservableMap
     }
 
+    public func mapChanged(adding vhnd: WindowsFoundationCollections_MapChangedEventHandler<Swift.String, WindowsRuntime.IInspectable?>?) throws -> WindowsRuntime.EventRegistration {
+        let _this = try _getIObservableMap()
+        var vhnd = try WindowsFoundationCollections_MapChangedEventHandlerProjection.String_Object.toABI(vhnd)
+        defer { WindowsFoundationCollections_MapChangedEventHandlerProjection.String_Object.release(&vhnd) }
+        var _result: CWindowsFoundation.EventRegistrationToken = CWindowsFoundation.EventRegistrationToken()
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.add_MapChanged(_this, vhnd, &_result))
+        return WindowsRuntime.EventRegistration(token: WindowsRuntime.EventRegistrationToken.toSwift(_result), remover: mapChanged)
+    }
+
+    public func mapChanged(removing token: WindowsRuntime.EventRegistrationToken) throws {
+        let _this = try _getIObservableMap()
+        let token = WindowsRuntime.EventRegistrationToken.toABI(token)
+        try HResult.throwIfFailed(_this.pointee.lpVtbl.pointee.remove_MapChanged(_this, token))
+    }
+
     // Windows.Foundation.Collections.IMap`2<String, Object>
     private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable>! = nil
 

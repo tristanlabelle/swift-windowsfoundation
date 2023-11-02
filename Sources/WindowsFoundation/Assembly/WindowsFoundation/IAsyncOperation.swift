@@ -12,7 +12,7 @@ public protocol WindowsFoundation_IAsyncOperationProtocol<TResult>: WindowsFound
     /// Gets or sets the method that handles the operation completed notification.
     /// - Returns: The method that handles the notification.
     var completed: WindowsFoundation_AsyncOperationCompletedHandler<TResult>? { get throws }
-    func completed(_ newValue: WindowsFoundation_AsyncOperationCompletedHandler<TResult>?) throws
+    func completed(_ handler: WindowsFoundation_AsyncOperationCompletedHandler<TResult>?) throws
 
     /// Returns the results of the operation.
     /// - Returns: The results of the operation.
