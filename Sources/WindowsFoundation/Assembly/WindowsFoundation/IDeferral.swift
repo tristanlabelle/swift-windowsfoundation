@@ -39,12 +39,14 @@ internal enum WindowsFoundation_IDeferralProjection: WinRTTwoWayProjection {
         }
 
         // Windows.Foundation.IClosable
-        private var _iclosable: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable>! = nil
+        private var _iclosable: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable>? = nil
 
         private func _getIClosable() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIClosable> {
+            if let existing = _iclosable { return existing }
             let iid = IID(0x30D5A829, 0x7FA4, 0x4026, 0x83BB, 0xD75BAE4EA99E)
-            _iclosable = try _queryInterfacePointer(iid).cast(to: __x_ABI_CWindows_CFoundation_CIClosable.self)
-            return _iclosable
+            let new = try _queryInterfacePointer(iid).cast(to: __x_ABI_CWindows_CFoundation_CIClosable.self)
+            _iclosable = new
+            return new
         }
 
         public func close() throws {

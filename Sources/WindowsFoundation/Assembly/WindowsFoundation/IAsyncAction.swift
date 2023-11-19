@@ -61,12 +61,14 @@ public enum WindowsFoundation_IAsyncActionProjection: WinRTTwoWayProjection {
         }
 
         // Windows.Foundation.IAsyncInfo
-        private var _iasyncInfo: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo>! = nil
+        private var _iasyncInfo: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo>? = nil
 
         private func _getIAsyncInfo() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncInfo> {
+            if let existing = _iasyncInfo { return existing }
             let iid = IID(0x00000036, 0x0000, 0x0000, 0xC000, 0x000000000046)
-            _iasyncInfo = try _queryInterfacePointer(iid).cast(to: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self)
-            return _iasyncInfo
+            let new = try _queryInterfacePointer(iid).cast(to: __x_ABI_CWindows_CFoundation_CIAsyncInfo.self)
+            _iasyncInfo = new
+            return new
         }
 
         public var errorCode: COM.HResult {

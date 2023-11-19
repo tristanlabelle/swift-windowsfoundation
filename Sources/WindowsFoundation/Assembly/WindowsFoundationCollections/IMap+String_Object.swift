@@ -82,12 +82,14 @@ extension WindowsFoundationCollections_IMapProjection {
             }
 
             // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-            private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
+            private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
 
             private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable> {
+                if let existing = _iiterable { return existing }
                 let iid = IID(0xFE2F3D47, 0x5D47, 0x5499, 0x8374, 0x430C7CDA0204)
-                _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
-                return _iiterable
+                let new = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
+                _iiterable = new
+                return new
             }
 
             public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?>? {

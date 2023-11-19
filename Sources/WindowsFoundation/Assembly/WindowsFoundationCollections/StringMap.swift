@@ -77,12 +77,14 @@ public final class WindowsFoundationCollections_StringMap: WinRTImport<WindowsFo
     }
 
     // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
-    private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING>! = nil
+    private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING>? = nil
 
     private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING> {
+        if let existing = _iiterable { return existing }
         let iid = IID(0xE9BDAAF0, 0xCBF6, 0x5C72, 0xBE90, 0x29CBF3A1319B)
-        _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING.self)
-        return _iiterable
+        let new = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_HSTRING.self)
+        _iiterable = new
+        return new
     }
 
     public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, Swift.String>?>? {
@@ -93,12 +95,14 @@ public final class WindowsFoundationCollections_StringMap: WinRTImport<WindowsFo
     }
 
     // Windows.Foundation.Collections.IObservableMap`2<String, String>
-    private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_HSTRING>! = nil
+    private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_HSTRING>? = nil
 
     private func _getIObservableMap() throws -> UnsafeMutablePointer<__FIObservableMap_2_HSTRING_HSTRING> {
+        if let existing = _iobservableMap { return existing }
         let iid = IID(0x1E036276, 0x2F60, 0x55F6, 0xB7F3, 0xF86079E6900B)
-        _iobservableMap = try _queryInterfacePointer(iid).cast(to: __FIObservableMap_2_HSTRING_HSTRING.self)
-        return _iobservableMap
+        let new = try _queryInterfacePointer(iid).cast(to: __FIObservableMap_2_HSTRING_HSTRING.self)
+        _iobservableMap = new
+        return new
     }
 
     public func mapChanged(adding vhnd: WindowsFoundationCollections_MapChangedEventHandler<Swift.String, Swift.String>?) throws -> WindowsRuntime.EventRegistration {
@@ -126,12 +130,15 @@ public final class WindowsFoundationCollections_StringMap: WinRTImport<WindowsFo
     }
 
     // IActivationFactory
-    private static var _iactivationFactory: UnsafeMutablePointer<IActivationFactory>! = nil
+    private static var _iactivationFactory: UnsafeMutablePointer<IActivationFactory>? = nil
 
     private static func _getIActivationFactory() throws -> UnsafeMutablePointer<IActivationFactory> {
+        if let existing = _iactivationFactory { return existing }
         let iid = IID(0x00000035, 0x0000, 0x0000, 0xC000, 0x000000000046)
-        _iactivationFactory = try _iactivationFactory ?? WindowsRuntime.getActivationFactoryPointer(activatableId: "Windows.Foundation.Collections.StringMap", iid: iid)
-        return _iactivationFactory
+        let new: UnsafeMutablePointer<IActivationFactory> = try WindowsRuntime.getActivationFactoryPointer(
+            activatableId: "Windows.Foundation.Collections.StringMap", iid: iid)
+        _iactivationFactory = new
+        return new
     }
 
     public convenience init() throws {

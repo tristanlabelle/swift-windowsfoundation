@@ -27,12 +27,14 @@ public final class WindowsFoundationCollections_PropertySet: WinRTImport<Windows
 
     // Windows.Foundation.Collections.IPropertySet
     // Windows.Foundation.Collections.IObservableMap`2<String, Object>
-    private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable>! = nil
+    private var _iobservableMap: UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable>? = nil
 
     private func _getIObservableMap() throws -> UnsafeMutablePointer<__FIObservableMap_2_HSTRING_IInspectable> {
+        if let existing = _iobservableMap { return existing }
         let iid = IID(0x236AAC9D, 0xFB12, 0x5C4D, 0xA41C, 0x9E445FB4D7EC)
-        _iobservableMap = try _queryInterfacePointer(iid).cast(to: __FIObservableMap_2_HSTRING_IInspectable.self)
-        return _iobservableMap
+        let new = try _queryInterfacePointer(iid).cast(to: __FIObservableMap_2_HSTRING_IInspectable.self)
+        _iobservableMap = new
+        return new
     }
 
     public func mapChanged(adding vhnd: WindowsFoundationCollections_MapChangedEventHandler<Swift.String, WindowsRuntime.IInspectable?>?) throws -> WindowsRuntime.EventRegistration {
@@ -51,12 +53,14 @@ public final class WindowsFoundationCollections_PropertySet: WinRTImport<Windows
     }
 
     // Windows.Foundation.Collections.IMap`2<String, Object>
-    private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable>! = nil
+    private var _imap: UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable>? = nil
 
     private func _getIMap() throws -> UnsafeMutablePointer<__FIMap_2_HSTRING_IInspectable> {
+        if let existing = _imap { return existing }
         let iid = IID(0x1B0D3570, 0x0877, 0x5EC2, 0x8A2C, 0x3B9539506ACA)
-        _imap = try _queryInterfacePointer(iid).cast(to: __FIMap_2_HSTRING_IInspectable.self)
-        return _imap
+        let new = try _queryInterfacePointer(iid).cast(to: __FIMap_2_HSTRING_IInspectable.self)
+        _imap = new
+        return new
     }
 
     public var size: Swift.UInt32 {
@@ -117,12 +121,14 @@ public final class WindowsFoundationCollections_PropertySet: WinRTImport<Windows
     }
 
     // Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
-    private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>! = nil
+    private var _iiterable: UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable>? = nil
 
     private func _getIIterable() throws -> UnsafeMutablePointer<__FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable> {
+        if let existing = _iiterable { return existing }
         let iid = IID(0xFE2F3D47, 0x5D47, 0x5499, 0x8374, 0x430C7CDA0204)
-        _iiterable = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
-        return _iiterable
+        let new = try _queryInterfacePointer(iid).cast(to: __FIIterable_1___FIKeyValuePair_2_HSTRING_IInspectable.self)
+        _iiterable = new
+        return new
     }
 
     public func first() throws -> WindowsFoundationCollections_IIterator<WindowsFoundationCollections_IKeyValuePair<Swift.String, WindowsRuntime.IInspectable?>?>? {
@@ -143,12 +149,15 @@ public final class WindowsFoundationCollections_PropertySet: WinRTImport<Windows
     }
 
     // IActivationFactory
-    private static var _iactivationFactory: UnsafeMutablePointer<IActivationFactory>! = nil
+    private static var _iactivationFactory: UnsafeMutablePointer<IActivationFactory>? = nil
 
     private static func _getIActivationFactory() throws -> UnsafeMutablePointer<IActivationFactory> {
+        if let existing = _iactivationFactory { return existing }
         let iid = IID(0x00000035, 0x0000, 0x0000, 0xC000, 0x000000000046)
-        _iactivationFactory = try _iactivationFactory ?? WindowsRuntime.getActivationFactoryPointer(activatableId: "Windows.Foundation.Collections.PropertySet", iid: iid)
-        return _iactivationFactory
+        let new: UnsafeMutablePointer<IActivationFactory> = try WindowsRuntime.getActivationFactoryPointer(
+            activatableId: "Windows.Foundation.Collections.PropertySet", iid: iid)
+        _iactivationFactory = new
+        return new
     }
 
     public convenience init() throws {

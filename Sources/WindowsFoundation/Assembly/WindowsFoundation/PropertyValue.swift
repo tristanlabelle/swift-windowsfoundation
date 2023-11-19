@@ -6,12 +6,15 @@ import WindowsRuntime
 import struct Foundation.UUID
 
 public enum WindowsFoundation_PropertyValue {
-    private static var _ipropertyValueStatics: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIPropertyValueStatics>! = nil
+    private static var _ipropertyValueStatics: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIPropertyValueStatics>? = nil
 
     private static func _getIPropertyValueStatics() throws -> UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIPropertyValueStatics> {
+        if let existing = _ipropertyValueStatics { return existing }
         let iid = IID(0x629BDBC8, 0xD932, 0x4FF4, 0x96B9, 0x8D96C5C1E858)
-        _ipropertyValueStatics = try _ipropertyValueStatics ?? WindowsRuntime.getActivationFactoryPointer(activatableId: "Windows.Foundation.PropertyValue", iid: iid)
-        return _ipropertyValueStatics
+        let new: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIPropertyValueStatics> = try WindowsRuntime.getActivationFactoryPointer(
+            activatableId: "Windows.Foundation.PropertyValue", iid: iid)
+        _ipropertyValueStatics = new
+        return new
     }
 
     public static func createEmpty() throws -> WindowsRuntime.IInspectable? {
